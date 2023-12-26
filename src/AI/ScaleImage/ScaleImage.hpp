@@ -3,8 +3,10 @@
 
 class ScaleImage
 {
-	static sf::Color bilinearInterpolation(const sf::Image& image, float x, float y);
 
 public:
-	static sf::Image scaleImage(const sf::Image& inputImage, int targetWidth=28, int targetHeight=28);
+	static sf::Image scaleImage(const sf::Image& inputImage, int targetWidth, int targetHeight);
+
+private:
+	static sf::Color bilinearInterpolation(const sf::Image& image, float x, float y);
 };

@@ -18,15 +18,13 @@ sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, float x, flo
 
 	//clamp do wartosci 0-255
 	value = std::max(0.0f, std::min(255.0f, value));
-		
-
+	
 	return sf::Color(value, value, value, 255);
 }
 
 
 sf::Image ScaleImage::scaleImage(const sf::Image& inputImage, int targetWidth, int targetHeight)
 {
-
 	sf::Vector2f scale;
 	scale.x= static_cast<float> (targetWidth) / inputImage.getSize().x;
 	scale.y = static_cast<float> (targetHeight) / inputImage.getSize().y;

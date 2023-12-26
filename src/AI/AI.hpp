@@ -7,10 +7,12 @@
 class AI
 {
 private:
+	static const int TRAINED_IMAGE_WIDTH;
+	static const int TRAINED_IMAGE_HEIGHT;
+	static const double DEVIATION_BIAS;
+	static const double DEVIATION_SCALE;
 
-	static float getImagePixel(const sf::Image& image, int x, int y);
-
-	static torch::Tensor preprocessImage(const sf::Image& image, int x = 28, int y = 28);
+	static torch::Tensor preprocessImage(const sf::Image& image);
 
 	int evaluateImage(const sf::Image& image);
 
@@ -23,4 +25,6 @@ public:
 	AI();
 
 	int evaluate(const sf::Image& sourceImage, bool isDebug = false);
+
+	void loadModel(const std::string& path);
 };
