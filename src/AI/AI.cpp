@@ -36,11 +36,11 @@ int AI::evaluateImage(const sf::Image& image)
 	return pred.item<int>();
 }
 
-AI::AI()
+AI::AI(const std::string& path)
 {
 	torch::manual_seed(0);
 	device = torch::Device(torch::kCPU);
-	loadModel("model.pt");
+	loadModel(path);
 }
 
 int AI::evaluate(const sf::Image& sourceImage, bool isDebug)

@@ -22,7 +22,7 @@ private:
 
 public:
 
-	AI();
+	AI(const std::string& path);
 
 	int evaluate(const sf::Image& sourceImage, bool isDebug = false);
 
