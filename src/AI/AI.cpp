@@ -43,22 +43,29 @@ AI::AI(const std::string& path)
 	loadModel(path);
 }
 
-int AI::evaluate(const sf::Image& sourceImage, bool isDebug)
+std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numberSystem)
 {
-	int output = 0;
+	int output = 0; //wynik w systemie dziesietnym
+	std::string outputString = ""; //wynik w systemie danym przez uzytkownika
+
 	std::vector<sf::Image> images = PixelTraversal::getImages(sourceImage);
 
 	for (int i = 0; i < images.size(); i++)
 	{
 		images[i] = ScaleImage::scaleImage(images[i], TRAINED_IMAGE_WIDTH, TRAINED_IMAGE_HEIGHT);
 
-		if(isDebug) images[i].saveToFile("image" + std::to_string(i) + ".png");
+		output *= numberSystem; //mnozenie razy podstawa systemu liczbowego
+		
+		int evaluatedImageValue = evaluateImage(images[i]);
+		
+		if (evaluatedImageValue >= numberSystem)
+			throw std::runtime_error("Nie jest to liczba w systemie " + std::to_string(numberSystem));
 
-		output *= 10; //mnozenie razy podstawa systemu liczbowego(10)
-		output += evaluateImage(images[i]);
+		output += evaluatedImageValue;
+		outputString += std::to_string( evaluatedImageValue );
 	}
 
-	return output;
+	return std::pair<std::string, int>(outputString, output);
 }
 
 void AI::loadModel(const std::string& path)

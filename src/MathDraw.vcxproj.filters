@@ -16,6 +16,24 @@
     <ClCompile Include="AI\PixelTraversal\PixelTraversal.cpp">
       <Filter>Source Files\AI\PixelTraversal</Filter>
     </ClCompile>
+    <ClCompile Include="RecogniseSubCommand.cpp">
+      <Filter>Source Files\ArgParser\RecogniseSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="SubCommand.cpp">
+      <Filter>Source Files\ArgParser\SubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleSubCommand.cpp">
+      <Filter>Source Files\ArgParser\HiddenSubCommand\ScaleSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="TraverseSubCommand.cpp">
+      <Filter>Source Files\ArgParser\HiddenSubCommand\TraverseSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files\ArgParser</Filter>
+    </ClCompile>
+    <ClCompile Include="HiddenSubCommand.cpp">
+      <Filter>Source Files\ArgParser\HiddenSubCommand</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -33,6 +51,24 @@
     <Filter Include="Source Files\AI\PixelTraversal">
       <UniqueIdentifier>{9b0b1854-d27c-4144-bad9-8af8923174e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ArgParser">
+      <UniqueIdentifier>{c4d8d4d2-02a6-4be5-81ae-25d8a4cb45e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ArgParser\SubCommand">
+      <UniqueIdentifier>{d50236e1-dc6c-4adf-8ae1-7f5cc7d880e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ArgParser\RecogniseSubCommand">
+      <UniqueIdentifier>{07da7297-b16e-433a-8b47-eadcf60ee525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ArgParser\HiddenSubCommand">
+      <UniqueIdentifier>{ab977110-392e-4dbc-bcd8-2678704595d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ArgParser\HiddenSubCommand\TraverseSubCommand">
+      <UniqueIdentifier>{4550b514-5fd7-4a6b-a3db-000914db3a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ArgParser\HiddenSubCommand\ScaleSubCommand">
+      <UniqueIdentifier>{abfb8809-ca2f-4d69-804e-d50567b35680}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI\AI.hpp">
@@ -46,6 +82,24 @@
     </ClInclude>
     <ClInclude Include="AI\PixelTraversal\PixelTraversal.hpp">
       <Filter>Source Files\AI\PixelTraversal</Filter>
+    </ClInclude>
+    <ClInclude Include="RecogniseSubCommand.h">
+      <Filter>Source Files\ArgParser\RecogniseSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="SubCommand.h">
+      <Filter>Source Files\ArgParser\SubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleSubCommand.h">
+      <Filter>Source Files\ArgParser\HiddenSubCommand\ScaleSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="TraverseSubCommand.h">
+      <Filter>Source Files\ArgParser\HiddenSubCommand\TraverseSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Source Files\ArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="HiddenSubCommand.h">
+      <Filter>Source Files\ArgParser\HiddenSubCommand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

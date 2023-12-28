@@ -24,7 +24,7 @@ public:
 
 	AI(const std::string& path);
 
-	int evaluate(const sf::Image& sourceImage, bool isDebug = false);
+	std::pair<std::string, int> evaluate(const sf::Image& sourceImage, int numberSystem);
 
 	void loadModel(const std::string& path);
 };

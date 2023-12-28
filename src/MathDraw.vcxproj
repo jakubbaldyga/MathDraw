@@ -181,13 +181,25 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="AI\Net\Net.cpp" />
     <ClCompile Include="AI\PixelTraversal\PixelTraversal.cpp" />
     <ClCompile Include="AI\ScaleImage\ScaleImage.cpp" />
+    <ClCompile Include="HiddenSubCommand.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="RecogniseSubCommand.cpp" />
+    <ClCompile Include="ScaleSubCommand.cpp" />
+    <ClCompile Include="SubCommand.cpp" />
+    <ClCompile Include="TraverseSubCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI\AI.hpp" />
     <ClInclude Include="AI\Net\Net.hpp" />
     <ClInclude Include="AI\PixelTraversal\PixelTraversal.hpp" />
     <ClInclude Include="AI\ScaleImage\ScaleImage.hpp" />
+    <ClInclude Include="HiddenSubCommand.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="RecogniseSubCommand.h" />
+    <ClInclude Include="ScaleSubCommand.h" />
+    <ClInclude Include="SubCommand.h" />
+    <ClInclude Include="TraverseSubCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
