@@ -31,7 +31,6 @@ int AI::evaluateImage(const sf::Image& image)
 	torch::Tensor inputTensor = preprocessImage(image);
 	inputTensor = inputTensor.to(device);
 	torch::Tensor output = model.forward(inputTensor);
-	model.eval();
 	auto pred = output.argmax(1);
 	return pred.item<int>();
 }
@@ -41,6 +40,7 @@ AI::AI(const std::string& path)
 	torch::manual_seed(0);
 	device = torch::Device(torch::kCPU);
 	loadModel(path);
+	model.eval();
 }
 
 std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numberSystem)
@@ -52,7 +52,7 @@ std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numbe
 
 	for (int i = 0; i < images.size(); i++)
 	{
-		images[i] = ScaleImage::scaleImage(images[i], TRAINED_IMAGE_WIDTH, TRAINED_IMAGE_HEIGHT);
+		images[i] = ScaleImage::scaleImage(images[i], sf::Vector2i(TRAINED_IMAGE_WIDTH, TRAINED_IMAGE_HEIGHT) );
 
 		output *= numberSystem; //mnozenie razy podstawa systemu liczbowego
 		

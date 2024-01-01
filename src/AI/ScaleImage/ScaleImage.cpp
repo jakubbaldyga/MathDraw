@@ -1,15 +1,16 @@
 ﻿#include "ScaleImage.hpp"
 #include <algorithm>
+#include "../../Utilties.hpp"
 
-sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, float x, float y)
+sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, sf::Vector2f position)
 {
-	int x0 = int(x);
-	int y0 = int(y);
+	int x0 = int(position.x);
+	int y0 = int(position.y);
 	int x1 = std::min(x0 + 1, static_cast<int>(image.getSize().x) - 1);
 	int y1 = std::min(y0 + 1, static_cast<int>(image.getSize().y) - 1);
 
-	float dx = x - x0;
-	float dy = y - y0;
+	float dx = position.x - x0;
+	float dy = position.y - y0;
 
 	float value = (1 - dx) * (1 - dy) * image.getPixel(x0, y0).r +
 		               dx  * (1 - dy) * image.getPixel(x1, y0).r +	
@@ -23,20 +24,17 @@ sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, float x, flo
 }
 
 
-sf::Image ScaleImage::scaleImage(const sf::Image& inputImage, int targetWidth, int targetHeight)
+sf::Image ScaleImage::scaleImage(const sf::Image& inputImage, sf::Vector2i targetDimenions)
 {
-	sf::Vector2f scale;
-	scale.x= static_cast<float> (targetWidth) / inputImage.getSize().x;
-	scale.y = static_cast<float> (targetHeight) / inputImage.getSize().y;
+	sf::Vector2f scale = targetDimenions / inputImage.getSize();
 
 	sf::Image outputImage;
-	outputImage.create(targetWidth, targetHeight);
+	outputImage.create(targetDimenions.x, targetDimenions.y);
 
-	for (int y = 0; y < targetHeight; ++y) {
-		for (int x = 0; x < targetWidth; ++x) {
-			float src_x = x / scale.x;
-			float src_y = y / scale.y;
-			outputImage.setPixel(x, y, bilinearInterpolation(inputImage, src_x, src_y));
+	for (int y = 0; y < targetDimenions.y; ++y) {
+		for (int x = 0; x < targetDimenions.x; ++x) {
+			sf::Vector2f src = sf::Vector2f(x, y) / scale;
+			outputImage.setPixel(x, y, bilinearInterpolation(inputImage, src));
 		}
 	}
 	return outputImage;

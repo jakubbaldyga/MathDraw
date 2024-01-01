@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\MathDraw\src\AI\AI.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\AI.obj
+C:\Users\Administrator\Desktop\MathDraw\src\AI\Net\Net.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\Net.obj
+C:\Users\Administrator\Desktop\MathDraw\src\AI\PixelTraversal\PixelTraversal.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\PixelTraversal.obj
+C:\Users\Administrator\Desktop\MathDraw\src\AI\ScaleImage\ScaleImage.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\ScaleImage.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Main.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\Main.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\HiddenSubCommands\HiddenSubCommand.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\HiddenSubCommand.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\ScaleSubCommand.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\TraverseSubCommand.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\Parser.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\Parser.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\RecogniseSubCommand\RecogniseSubCommand.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\RecogniseSubCommand.obj
+C:\Users\Administrator\Desktop\MathDraw\src\Parser\SubCommand\SubCommand.cpp;C:\Users\Administrator\Desktop\MathDraw\.vs\MathDraw.dir\Release\SubCommand.obj

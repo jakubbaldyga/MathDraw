@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\AI\Net\Net.cpp">
+      <Filter>Source Files\AI\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AI\PixelTraversal\PixelTraversal.cpp">
+      <Filter>Source Files\AI\PixelTraversal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AI\ScaleImage\ScaleImage.cpp">
+      <Filter>Source Files\AI\ScaleImage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AI\AI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.cpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\ScaleSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.cpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\TraverseSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.cpp">
+      <Filter>Source Files\Parser\HiddenSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\SubCommand\SubCommand.cpp">
+      <Filter>Source Files\Parser\SubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.cpp">
+      <Filter>Source Files\Parser\RecogniseSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser\Parser.cpp">
+      <Filter>Source Files\Parser</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F23262D7-7A28-3657-BA8F-128552BB4444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{769d8564-8d7f-4b52-b58e-34aa72f7e646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\Net">
+      <UniqueIdentifier>{6229226a-7f94-4872-b9f3-2a8c78e0f9e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\ScaleImage">
+      <UniqueIdentifier>{2139ed79-f4cb-4ef9-81ab-9e60b7b3761d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\PixelTraversal">
+      <UniqueIdentifier>{9b0b1854-d27c-4144-bad9-8af8923174e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilites">
+      <UniqueIdentifier>{56ab326b-6827-4d55-baae-c605543b050f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser">
+      <UniqueIdentifier>{c4d8d4d2-02a6-4be5-81ae-25d8a4cb45e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser\SubCommand">
+      <UniqueIdentifier>{d50236e1-dc6c-4adf-8ae1-7f5cc7d880e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser\RecogniseSubCommand">
+      <UniqueIdentifier>{07da7297-b16e-433a-8b47-eadcf60ee525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser\HiddenSubCommand">
+      <UniqueIdentifier>{ab977110-392e-4dbc-bcd8-2678704595d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser\HiddenSubCommand\TraverseSubCommand">
+      <UniqueIdentifier>{4550b514-5fd7-4a6b-a3db-000914db3a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser\HiddenSubCommand\ScaleSubCommand">
+      <UniqueIdentifier>{abfb8809-ca2f-4d69-804e-d50567b35680}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\AI\Net\Net.hpp">
+      <Filter>Source Files\AI\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AI\PixelTraversal\PixelTraversal.hpp">
+      <Filter>Source Files\AI\PixelTraversal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AI\ScaleImage\ScaleImage.hpp">
+      <Filter>Source Files\AI\ScaleImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AI\AI.hpp">
+      <Filter>Source Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utilties.hpp">
+      <Filter>Source Files\Utilites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.h">
+      <Filter>Source Files\Parser\HiddenSubCommand\ScaleSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.h">
+      <Filter>Source Files\Parser\HiddenSubCommand\TraverseSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.h">
+      <Filter>Source Files\Parser\HiddenSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\SubCommand\SubCommand.h">
+      <Filter>Source Files\Parser\SubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.h">
+      <Filter>Source Files\Parser\RecogniseSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\Parser.h">
+      <Filter>Source Files\Parser</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

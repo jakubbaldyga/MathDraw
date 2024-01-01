@@ -63,12 +63,12 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 	return creteSubImage(checkedPixels, topLeft, size);
 }
 
-bool PixelTraversal::validPixel(const sf::Image& image, sf::Vector3i pixel, int x, int y)
+bool PixelTraversal::validPixel(const sf::Image& image, sf::Vector3i pixel, int dx, int dy)
 {
-	if (x == 0 && y == 0) return false;
-	if (pixel.x + x < 0 || pixel.x + x >= image.getSize().x) return false;
-	if (pixel.y + y < 0 || pixel.y + y >= image.getSize().y) return false;
-	if (image.getPixel(pixel.x + x, pixel.y + y) == sf::Color(0, 0, 0)) return false;
+	if (dx == 0 && dy == 0) return false;
+	if (pixel.x + dx < 0 || pixel.x + dx >= image.getSize().x) return false;
+	if (pixel.y + dy < 0 || pixel.y + dy >= image.getSize().y) return false;
+	if (image.getPixel(pixel.x + dx, pixel.y + dy) == sf::Color(0, 0, 0)) return false;
 	return true;
 }
 
@@ -84,8 +84,7 @@ bool PixelTraversal::validSubImage(std::vector<sf::Vector3i> checkedPixels)
 	return true;
 }
 
-sf::Image PixelTraversal::creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft,
-	sf::Vector2i size)
+sf::Image PixelTraversal::creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft, sf::Vector2i size)
 {
 	sf::Image subImage = sf::Image();
 	subImage.create(size.x + 1 - topLeft.x, size.y + 1 - topLeft.y, sf::Color(0, 0, 0));

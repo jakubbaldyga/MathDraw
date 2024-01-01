@@ -1,4 +1,2 @@
 /x64
-/src/x64/
-/src/.vs/
-/src/MathDraw.dir
+/Doxyfile.doxygen
