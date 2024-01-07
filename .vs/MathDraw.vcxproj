@@ -180,9 +180,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\src\AI\AI.cpp" />
     <ClCompile Include="..\src\AI\Net\Net.cpp" />
     <ClCompile Include="..\src\AI\PixelTraversal\PixelTraversal.cpp" />
+    <ClCompile Include="..\src\AI\ResizeImage\ResizeImage.cpp" />
     <ClCompile Include="..\src\AI\ScaleImage\ScaleImage.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
     <ClCompile Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.cpp" />
+    <ClCompile Include="..\src\Parser\HiddenSubCommands\ResizeSubCommand\ResizeSubCommand.cpp" />
     <ClCompile Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.cpp" />
     <ClCompile Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.cpp" />
     <ClCompile Include="..\src\Parser\Parser.cpp" />
@@ -193,13 +195,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\src\AI\AI.hpp" />
     <ClInclude Include="..\src\AI\Net\Net.hpp" />
     <ClInclude Include="..\src\AI\PixelTraversal\PixelTraversal.hpp" />
+    <ClInclude Include="..\src\AI\ResizeImage\ResizeImage.hpp" />
     <ClInclude Include="..\src\AI\ScaleImage\ScaleImage.hpp" />
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.h" />
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.h" />
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.h" />
-    <ClInclude Include="..\src\Parser\Parser.h" />
-    <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.h" />
-    <ClInclude Include="..\src\Parser\SubCommand\SubCommand.h" />
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.hpp" />
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\ResizeSubCommand\ResizeSubCommand.hpp" />
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.hpp" />
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.hpp" />
+    <ClInclude Include="..\src\Parser\Parser.hpp" />
+    <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.hpp" />
+    <ClInclude Include="..\src\Parser\SubCommand\SubCommand.hpp" />
     <ClInclude Include="..\src\Utilties.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

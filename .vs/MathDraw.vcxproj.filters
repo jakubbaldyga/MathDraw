@@ -34,6 +34,12 @@
     <ClCompile Include="..\src\Parser\Parser.cpp">
       <Filter>Source Files\Parser</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Parser\HiddenSubCommands\ResizeSubCommand\ResizeSubCommand.cpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\ResizeSubCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AI\ResizeImage\ResizeImage.cpp">
+      <Filter>Source Files\AI\ResizeImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -72,6 +78,12 @@
     <Filter Include="Source Files\Parser\HiddenSubCommand\ScaleSubCommand">
       <UniqueIdentifier>{abfb8809-ca2f-4d69-804e-d50567b35680}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Parser\HiddenSubCommand\ResizeSubCommand">
+      <UniqueIdentifier>{61776899-901a-43b7-9cfa-e6303a15b69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\ResizeImage">
+      <UniqueIdentifier>{28ddf684-35c3-4484-a71d-4b3b3440eefd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AI\Net\Net.hpp">
@@ -89,23 +101,29 @@
     <ClInclude Include="..\src\Utilties.hpp">
       <Filter>Source Files\Utilites</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.h">
-      <Filter>Source Files\Parser\HiddenSubCommand\ScaleSubCommand</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.h">
-      <Filter>Source Files\Parser\HiddenSubCommand\TraverseSubCommand</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.h">
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.hpp">
       <Filter>Source Files\Parser\HiddenSubCommand</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Parser\SubCommand\SubCommand.h">
-      <Filter>Source Files\Parser\SubCommand</Filter>
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\ResizeSubCommand\ResizeSubCommand.hpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\ResizeSubCommand</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.h">
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\ScaleSubCommand\ScaleSubCommand.hpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\ScaleSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\HiddenSubCommands\TraverseSubCommand\TraverseSubCommand.hpp">
+      <Filter>Source Files\Parser\HiddenSubCommand\TraverseSubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.hpp">
       <Filter>Source Files\Parser\RecogniseSubCommand</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Parser\Parser.h">
+    <ClInclude Include="..\src\Parser\SubCommand\SubCommand.hpp">
+      <Filter>Source Files\Parser\SubCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser\Parser.hpp">
       <Filter>Source Files\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AI\ResizeImage\ResizeImage.hpp">
+      <Filter>Source Files\AI\ResizeImage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

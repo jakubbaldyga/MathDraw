@@ -14,7 +14,7 @@
 *		  \endcode
 *		  Usage:
 *		  \code{.bash}
-*		  MathDraw hidden scale -i <path to image> -w <width> -h <height> -o <output file>
+*		  MathDraw hidden scale -i <path to image> -w <width> -he <height> -o <output file>
 *		  \endcode
 */
 class ScaleSubCommand: public SubCommand
@@ -26,7 +26,7 @@ public:
 	///			 Adds all arguments to the parser<br>
 	///			 -i --image <path to image> - path to image to scale<br>
 	///			 -w --width <width> - width of the image<br>
-	///			 -h --height <height> - height of the image<br>
+	///			 -he --height <height> - height of the image<br>
 	///			 -o --output <output> - output file, default is scaledImage.png
 	ScaleSubCommand();
 
