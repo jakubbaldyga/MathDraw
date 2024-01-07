@@ -2,28 +2,29 @@
 #include <SFML/Graphics.hpp>
 #include "../../../AI/ResizeImage/ResizeImage.hpp"
 #include <iostream>
+#include "../../../Utilities/Strings.hpp"
 
-ResizeSubCommand::ResizeSubCommand(): SubCommand("resize", "Resize the image")
+ResizeSubCommand::ResizeSubCommand(): SubCommand(Strings::RESIZE_COMMAND_NAME, Strings::RESIZE_COMMAND_DESCRRIPTION )
 {
 	add_argument("--image", "-i")
-		.help("Specify image file")
+		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
 		.required();
 
 	add_argument("--width", "-w")
-		.help("Specify width")
+		.help(Strings::SPECIFY_WIDTH)
 		.nargs(1)
 		.scan<'i', int>()
 		.required();
 
 	add_argument("--height", "-he")
-		.help("Specify height")
+		.help(Strings::SPECIFY_HEIGHT)
 		.nargs(1)
 		.scan<'i', int>()
 		.required();
 
 	add_argument("--output", "-o")
-		.help("Specify output file")
+		.help(Strings::SPECIFY_OUTPUT_FILE)
 		.nargs(1)
 		.default_value("resizedImage.png");
 }
@@ -44,6 +45,6 @@ void ResizeSubCommand::doCommand()
 
 	sf::Image resizedImage = ResizeImage::resizeImage(sourceImage, sf::Vector2u(width, height));
 	resizedImage.saveToFile(output);
-	std::cout << "Zmieniono rozmiar i wygenerowano " + output << std::endl;
+	std::cout << "Resized and generated " + output << std::endl;
 	return;
 }

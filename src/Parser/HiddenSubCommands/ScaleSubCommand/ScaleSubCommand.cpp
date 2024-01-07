@@ -2,28 +2,29 @@
 #include <argparse/argparse.hpp>
 #include <SFML/Graphics.hpp>
 #include "../../../AI/ScaleImage/ScaleImage.hpp"
+#include "../../../Utilities/Strings.hpp"
 
-ScaleSubCommand::ScaleSubCommand() : SubCommand("scale", "Scale the image")
+ScaleSubCommand::ScaleSubCommand() : SubCommand(Strings::SCALE_COMMAND_NAME, Strings::SCALE_COMMAND_DESCRIPTION)
 {	
 	add_argument("--image", "-i")
-		.help("Specify image file")
+		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
 		.required();
 
 	add_argument("--width", "-w")
-		.help("Specify width")
+		.help(Strings::SPECIFY_WIDTH)
 		.nargs(1)
 		.scan<'i', int>()
 		.required();
 
 	add_argument("--height", "-he")
-		.help("Specify height")
+		.help(Strings::SPECIFY_HEIGHT)
 		.nargs(1)
 		.scan<'i', int>()
 		.required();
 
 	add_argument("--output", "-o")
-		.help("Specify output file")
+		.help(Strings::SPECIFY_OUTPUT_FILE)
 		.nargs(1)
 		.default_value("scaledImage.png");
 }
@@ -44,6 +45,6 @@ void ScaleSubCommand::doCommand()
 
 	sf::Image scaledImage = ScaleImage::scaleImage(sourceImage, sf::Vector2i(width, height) );
 	scaledImage.saveToFile(output);
-	std::cout << "Zeskalowano i wygenerowano " + output << std::endl;
+	std::cout << "Scaled and generated " + output << std::endl;
 	return;
 }

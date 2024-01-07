@@ -1,6 +1,6 @@
 ﻿#include "ScaleImage.hpp"
 #include <algorithm>
-#include "../../Utilties.hpp"
+#include "../../Utilities/Utilties.hpp"
 
 sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, sf::Vector2f position)
 {

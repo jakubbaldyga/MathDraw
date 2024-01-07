@@ -190,6 +190,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\src\Parser\Parser.cpp" />
     <ClCompile Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.cpp" />
     <ClCompile Include="..\src\Parser\SubCommand\SubCommand.cpp" />
+    <ClCompile Include="..\src\Utilities\Strings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AI\AI.hpp" />
@@ -204,7 +205,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\src\Parser\Parser.hpp" />
     <ClInclude Include="..\src\Parser\RecogniseSubCommand\RecogniseSubCommand.hpp" />
     <ClInclude Include="..\src\Parser\SubCommand\SubCommand.hpp" />
-    <ClInclude Include="..\src\Utilties.hpp" />
+    <ClInclude Include="..\src\Utilities\Strings.hpp" />
+    <ClInclude Include="..\src\Utilities\Utilties.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

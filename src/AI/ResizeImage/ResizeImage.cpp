@@ -1,5 +1,5 @@
 #include "ResizeImage.hpp"
-#include "../../Utilties.hpp"
+#include "../../Utilities/Utilties.hpp"
 
 sf::Image ResizeImage::resizeImageToSquare(const sf::Image& image)
 {

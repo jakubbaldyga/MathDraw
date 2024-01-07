@@ -40,6 +40,9 @@
     <ClCompile Include="..\src\AI\ResizeImage\ResizeImage.cpp">
       <Filter>Source Files\AI\ResizeImage</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Utilities\Strings.cpp">
+      <Filter>Source Files\Utilites</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -98,9 +101,6 @@
     <ClInclude Include="..\src\AI\AI.hpp">
       <Filter>Source Files\AI</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Utilties.hpp">
-      <Filter>Source Files\Utilites</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Parser\HiddenSubCommands\HiddenSubCommand.hpp">
       <Filter>Source Files\Parser\HiddenSubCommand</Filter>
     </ClInclude>
@@ -124,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="..\src\AI\ResizeImage\ResizeImage.hpp">
       <Filter>Source Files\AI\ResizeImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utilities\Strings.hpp">
+      <Filter>Source Files\Utilites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utilities\Utilties.hpp">
+      <Filter>Source Files\Utilites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

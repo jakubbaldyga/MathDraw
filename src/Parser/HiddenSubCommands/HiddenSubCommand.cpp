@@ -2,9 +2,9 @@
 #include "TraverseSubCommand/TraverseSubCommand.hpp"
 #include "ResizeSubCommand/ResizeSubCommand.hpp"
 #include "ScaleSubCommand/ScaleSubCommand.hpp"
+#include "../../Utilities/Strings.hpp"
 
-
-HiddenSubCommands::HiddenSubCommands(): SubCommand("hidden", "Hidden subcommands for debug and testing")
+HiddenSubCommands::HiddenSubCommands(): SubCommand(Strings::HIDDEN_COMMAND_NAME, Strings::HIDDEN_COMMAND_DESCRRIPTION)
 {
 	set_suppress(true);
 

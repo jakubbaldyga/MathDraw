@@ -2,16 +2,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../../../AI/PixelTraversal/PixelTraversal.hpp"
+#include "../../../Utilities/Strings.hpp"
 
-TraverseSubCommand::TraverseSubCommand(): SubCommand("traverse", "Traverse the image")
+TraverseSubCommand::TraverseSubCommand(): SubCommand(Strings::TRAVERSE_COMMAND_NAME, Strings::TRAVERSE_COMMAND_DESCRIPTION)
 {
 	add_argument("--image", "-i")
-		.help("Specify image file")
+		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
 		.required();
 
 	add_argument("--output", "-o")
-		.help("Specify output files")
+		.help(Strings::SPECIFY_OUTPUT_FILE)
 		.nargs(1)
 		.default_value("traversedImage.png");
 }
@@ -34,6 +35,6 @@ void TraverseSubCommand::doCommand()
 	{
 		images[i].saveToFile(outputFileName + std::to_string(i) + outputFileExtension);
 	}
-	std::cout << "Wygenerowano " << images.size() << " obrazow" << std::endl;
+	std::cout << "Generated " << images.size() << " images" << std::endl;
 }
 

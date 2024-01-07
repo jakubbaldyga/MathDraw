@@ -1,7 +1,7 @@
 #include <iostream>
 #include <argparse/argparse.hpp>
 #include "Parser/Parser.hpp"
-
+#include "Utilities/Strings.hpp"
 /**
 * \author Jakub Ba³dyga
 * \date 16/12/2023
@@ -10,8 +10,6 @@
 */
 int main(int argc, char* argv[])
 {
-	const std::string programName = "MathDraw";
-	const std::string programVersion = "1.0.0";
-	Parser parser(programName, programVersion);
+	Parser parser(Strings::PROGRAM_NAME, Strings::PROGRAM_VERSION);
 	parser.parseArgs(argc, argv);
 }

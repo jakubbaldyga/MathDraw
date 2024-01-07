@@ -61,7 +61,7 @@ std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numbe
 		int evaluatedImageValue = evaluateImage(images[i]);
 		
 		if (evaluatedImageValue >= numberSystem)
-			throw std::runtime_error("Nie jest to liczba w systemie " + std::to_string(numberSystem));
+			throw std::runtime_error("This is not a number in " + std::to_string(numberSystem) + " system");
 
 		output += evaluatedImageValue;
 		outputString += std::to_string( evaluatedImageValue );
