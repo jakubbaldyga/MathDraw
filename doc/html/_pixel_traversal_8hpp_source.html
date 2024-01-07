@@ -113,19 +113,18 @@ $(function(){initNavTree('_pixel_traversal_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> std::vector&lt;sf::Image&gt; <a class="code hl_function" href="class_pixel_traversal.html#a057fddff3c5ec3842e65117bc9da560e">getImages</a>(sf::Image image);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> sf::Image getSubImage(sf::Image&amp; image, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> validPixel(<span class="keyword">const</span> sf::Image&amp; image, sf::Vector3i pixel, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> validSubImage(std::vector&lt;sf::Vector3i&gt; checkedPixels);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> sf::Image creteSubImage(<span class="keyword">const</span> std::vector&lt;sf::Vector3i&gt;&amp; checkedPixels, sf::Vector2i topLeft, sf::Vector2i size);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> std::vector&lt;sf::Image&gt; <a class="code hl_function" href="class_pixel_traversal.html#a057fddff3c5ec3842e65117bc9da560e">getImages</a>(sf::Image image);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">static</span> sf::Image getSubImage(sf::Image&amp; image, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> validPixel(<span class="keyword">const</span> sf::Image&amp; image, sf::Vector3i pixel, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> validSubImage(std::vector&lt;sf::Vector3i&gt; checkedPixels);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> sf::Image creteSubImage(<span class="keyword">const</span> std::vector&lt;sf::Vector3i&gt;&amp; checkedPixels, sf::Vector2i topLeft, sf::Vector2i size);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 </div>
 <div class="ttc" id="aclass_pixel_traversal_html"><div class="ttname"><a href="class_pixel_traversal.html">PixelTraversal</a></div><div class="ttdoc">Static class designed to traverse things on given image.</div><div class="ttdef"><b>Definition</b> PixelTraversal.hpp:16</div></div>
 <div class="ttc" id="aclass_pixel_traversal_html_a057fddff3c5ec3842e65117bc9da560e"><div class="ttname"><a href="class_pixel_traversal.html#a057fddff3c5ec3842e65117bc9da560e">PixelTraversal::getImages</a></div><div class="ttdeci">static std::vector&lt; sf::Image &gt; getImages(sf::Image image)</div><div class="ttdoc">function that traverses the image and returns the subimages</div><div class="ttdef"><b>Definition</b> PixelTraversal.cpp:3</div></div>
