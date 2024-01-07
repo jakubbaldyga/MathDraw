@@ -3,6 +3,7 @@
 #include "PixelTraversal/PixelTraversal.hpp"
 #include "ScaleImage/ScaleImage.hpp"
 #include "AI.hpp"
+#include "ResizeImage/ResizeImage.hpp"
 
 const int AI::TRAINED_IMAGE_WIDTH = 28;
 const int AI::TRAINED_IMAGE_HEIGHT = 28;
@@ -52,6 +53,7 @@ std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numbe
 
 	for (int i = 0; i < images.size(); i++)
 	{
+		images[i] = ResizeImage::resizeImageToSquare(images[i]);
 		images[i] = ScaleImage::scaleImage(images[i], sf::Vector2i(TRAINED_IMAGE_WIDTH, TRAINED_IMAGE_HEIGHT) );
 
 		output *= numberSystem; //mnozenie razy podstawa systemu liczbowego

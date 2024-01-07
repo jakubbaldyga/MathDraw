@@ -1,6 +1,6 @@
 #include <iostream>
 #include <argparse/argparse.hpp>
-#include "Parser/Parser.h"
+#include "Parser/Parser.hpp"
 
 /**
 * \author Jakub Ba³dyga

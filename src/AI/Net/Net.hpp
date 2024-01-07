@@ -14,6 +14,8 @@ struct Net : torch::nn::Module {
 	/// @brief Default constructor
 	Net();
 
+
+
 	/// @brief evaluates the image and returns the result.
 	/// @param imageTensor - image to evaluate in Tensor data type
 	/// @return **Tensor** - value in decimal system

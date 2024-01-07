@@ -1,6 +1,6 @@
-#include "Parser.h"
-#include "RecogniseSubCommand/RecogniseSubCommand.h"
-#include "HiddenSubCommands/HiddenSubCommand.h"
+#include "Parser.hpp"
+#include "RecogniseSubCommand/RecogniseSubCommand.hpp"
+#include "HiddenSubCommands/HiddenSubCommand.hpp"
 
 Parser::Parser(std::string programName, std::string programVersion): argparse::ArgumentParser(programName, programVersion)
 {

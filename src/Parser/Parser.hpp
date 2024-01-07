@@ -1,7 +1,7 @@
 #pragma once
 #include <argparse/argparse.hpp>
 #include <vector>
-#include "SubCommand/SubCommand.h"
+#include "SubCommand/SubCommand.hpp"
 
 /**
 * \author Jakub Baldyga

@@ -1,10 +1,10 @@
-#include "ScaleSubCommand.hpp"
-#include <argparse/argparse.hpp>
+#include "ResizeSubCommand.hpp"
 #include <SFML/Graphics.hpp>
-#include "../../../AI/ScaleImage/ScaleImage.hpp"
+#include "../../../AI/ResizeImage/ResizeImage.hpp"
+#include <iostream>
 
-ScaleSubCommand::ScaleSubCommand() : SubCommand("scale", "Scale the image")
-{	
+ResizeSubCommand::ResizeSubCommand(): SubCommand("resize", "Resize the image")
+{
 	add_argument("--image", "-i")
 		.help("Specify image file")
 		.nargs(1)
@@ -25,10 +25,10 @@ ScaleSubCommand::ScaleSubCommand() : SubCommand("scale", "Scale the image")
 	add_argument("--output", "-o")
 		.help("Specify output file")
 		.nargs(1)
-		.default_value("scaledImage.png");
+		.default_value("resizedImage.png");
 }
 
-void ScaleSubCommand::doCommand()
+void ResizeSubCommand::doCommand()
 {
 	std::string fileName = get<std::string>("-i");
 	std::string output = get<std::string>("-o");
@@ -38,12 +38,12 @@ void ScaleSubCommand::doCommand()
 
 
 	sf::Image sourceImage;
-	
+
 	if (!sourceImage.loadFromFile(fileName))
 		return;
 
-	sf::Image scaledImage = ScaleImage::scaleImage(sourceImage, sf::Vector2i(width, height) );
-	scaledImage.saveToFile(output);
-	std::cout << "Zeskalowano i wygenerowano " + output << std::endl;
+	sf::Image resizedImage = ResizeImage::resizeImage(sourceImage, sf::Vector2u(width, height));
+	resizedImage.saveToFile(output);
+	std::cout << "Zmieniono rozmiar i wygenerowano " + output << std::endl;
 	return;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SubCommand/SubCommand.h"
+#include "../../SubCommand/SubCommand.hpp"
 
 /**
 * \author Jakub Baldyga

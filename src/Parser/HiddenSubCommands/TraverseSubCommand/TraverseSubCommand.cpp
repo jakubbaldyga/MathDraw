@@ -1,4 +1,4 @@
-#include "TraverseSubCommand.h"
+#include "TraverseSubCommand.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../../../AI/PixelTraversal/PixelTraversal.hpp"

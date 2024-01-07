@@ -10,7 +10,7 @@
 * \brief Utilities file.
 */
 
-/// @brief function that provides division for sf::Vector2, helpful for scaling
+/// @brief function that provides division for sf::Vector2 and sf::Vector2
 /// @param a - first vector
 /// @param b - second vector
 /// @return  **sf::Vector2f** - result of division a/b
@@ -23,8 +23,7 @@ sf::Vector2f operator/(sf::Vector2<T> a, sf::Vector2<U> b)
 	return result;
 }
 
-
-/// @brief function that retrieves the directory of the executable, to get the path to the model
+/// @brief function that retrieves the directory of the executable, works only on windows
 /// @return **std::string** - directory of the executable
 inline std::string GetExecutableDirectory() {
 	char buffer[MAX_PATH];

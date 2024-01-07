@@ -19,7 +19,6 @@ public:
 	/// @brief function that traverses the image and returns the subimages
 	/// @param image - image to traverse
 	/// @return  **vector<sf::Image>** - vector of subimages
-
 	static std::vector<sf::Image> getImages(sf::Image image);
 
 private:

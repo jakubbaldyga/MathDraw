@@ -1,4 +1,4 @@
-#include "RecogniseSubCommand.h"
+#include "RecogniseSubCommand.hpp"
 #include "../../AI/AI.hpp"
 #include <SFML/Graphics.hpp>
 #include "../../Utilties.hpp"

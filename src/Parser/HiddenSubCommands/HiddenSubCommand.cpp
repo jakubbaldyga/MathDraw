@@ -1,12 +1,16 @@
-#include "HiddenSubCommand.h"
-#include "TraverseSubCommand/TraverseSubCommand.h"
-#include "ScaleSubCommand/ScaleSubCommand.h"
+#include "HiddenSubCommand.hpp"
+#include "TraverseSubCommand/TraverseSubCommand.hpp"
+#include "ResizeSubCommand/ResizeSubCommand.hpp"
+#include "ScaleSubCommand/ScaleSubCommand.hpp"
+
+
 HiddenSubCommands::HiddenSubCommands(): SubCommand("hidden", "Hidden subcommands for debug and testing")
 {
 	set_suppress(true);
 
 	subCommands = std::vector<SubCommand*>();
 	subCommands.push_back(new TraverseSubCommand());
+	subCommands.push_back(new ResizeSubCommand());
 	subCommands.push_back(new ScaleSubCommand());
 
 	for (auto subCommand : subCommands) {
