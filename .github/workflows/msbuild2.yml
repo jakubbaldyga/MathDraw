@@ -1,0 +1,44 @@
+name: C++ Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v1.0.1
+
+    - name: Install vcpkg
+      run: |
+        git clone https://github.com/microsoft/vcpkg.git
+        cd vcpkg
+        ./bootstrap-vcpkg.sh
+        ./vcpkg integrate install
+      shell: bash
+
+    - name: Install SFML and LibTorch
+      run: |
+        ./vcpkg install sfml libtorch
+      shell: bash
+
+    - name: Build
+      run: msbuild /t:Build /p:Configuration=Release
+
+    - name: Test
+      run: msbuild /t:Test /p:Configuration=Release
+
+    - name: Run Tests with External Libraries
+      run: |
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/vcpkg/installed/lib
+        ./your_test_executable
