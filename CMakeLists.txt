@@ -9,6 +9,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(argparse)
 
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.4.0 
+)
+FetchContent_MakeAvailable(Catch2)
+
 # Fetch sfml library
 FetchContent_Declare(
     sfml
@@ -38,7 +45,6 @@ find_package(Torch REQUIRED)
 set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES
-    src/main.cpp
     src/AI/AI.hpp
     src/AI/AI.cpp
     src/AI/Net/Net.hpp
@@ -71,7 +77,13 @@ set(SOURCES
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 # Add executable
-add_executable(MathDraw ${SOURCES})
+add_executable(MathDraw ${SOURCES} "src/main.cpp")
 
 target_link_libraries(MathDraw "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse)
 set_property(TARGET MathDraw PROPERTY CXX_STANDARD 20)
+
+enable_testing()
+add_executable(MathDrawTest ${SOURCES} "tests/Tests.cpp")
+
+target_link_libraries(MathDrawTest "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
+set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)

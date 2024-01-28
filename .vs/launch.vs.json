@@ -7,6 +7,12 @@
       "project": "CMakeLists.txt",
       "projectTarget": "MathDraw.exe",
       "name": "MathDraw.exe"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "MathDrawTest.exe",
+      "name": "MathDrawTest.exe"
     }
   ]
 }

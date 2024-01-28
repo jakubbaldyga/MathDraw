@@ -28,7 +28,7 @@ private:
 	torch::Device device = torch::Device(torch::kCPU);
 	Net model;
 
-
+	friend class TestClass;
 public:
 	/// @brief Default constructor
 	/// @param modelPath - path to the model to load

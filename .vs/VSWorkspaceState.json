@@ -12,8 +12,17 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\AI",
+    "\\src\\AI\\Net",
+    "\\src\\AI\\PixelTraversal",
+    "\\src\\AI\\ResizeImage",
+    "\\src\\AI\\ScaleImage",
+    "\\src\\Parser",
+    "\\src\\Parser\\RecogniseSubCommand",
+    "\\src\\Parser\\SubCommand"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\src\\AI\\AI.hpp",
   "PreviewInSolutionExplorer": false
 }

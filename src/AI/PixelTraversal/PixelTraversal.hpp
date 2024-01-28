@@ -30,4 +30,6 @@ private:
 	static bool validSubImage(std::vector<sf::Vector3i> checkedPixels);
 
 	static sf::Image creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft, sf::Vector2i size);
+	
+	friend class TestClass;
 };
