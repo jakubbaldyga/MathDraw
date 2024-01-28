@@ -8,7 +8,7 @@ std::vector<sf::Image> PixelTraversal::getImages(sf::Image image)
 	{
 		for (int y = 0; y < image.getSize().y; y++)
 		{
-			if (image.getPixel(x, y).r != 0)
+			if (image.getPixel(sf::Vector2u(x, y)).r != 0)
 			{
 				try
 				{
@@ -29,8 +29,8 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 	std::vector<sf::Vector3i> pixels;
 	std::vector<sf::Vector3i> checkedPixels;
 
-	pixels.emplace_back(x, y, image.getPixel(x, y).r);
-	image.setPixel(x, y, sf::Color(0, 0, 0));
+	pixels.emplace_back(x, y, image.getPixel(sf::Vector2u(x, y)).r);
+	image.setPixel(sf::Vector2u(x, y), sf::Color(0, 0, 0));
 
 	sf::Vector2i size(0, 0);
 	sf::Vector2i topLeft(x, y);
@@ -43,8 +43,8 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 			{
 				if (!validPixel(image, pixels[0], i, j)) continue;
 
-				pixels.emplace_back(pixels[0].x + i, pixels[0].y + j, image.getPixel(pixels[0].x + i, pixels[0].y + j).r);
-				image.setPixel(pixels[0].x + i, pixels[0].y + j, sf::Color(0, 0, 0));
+				pixels.emplace_back(pixels[0].x + i, pixels[0].y + j, image.getPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j)).r);
+				image.setPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j), sf::Color(0, 0, 0));
 
 				size.x = std::max(size.x, pixels[0].x + i);
 				size.y = std::max(size.y, pixels[0].y + j);
@@ -68,7 +68,7 @@ bool PixelTraversal::validPixel(const sf::Image& image, sf::Vector3i pixel, int 
 	if (dx == 0 && dy == 0) return false;
 	if (pixel.x + dx < 0 || pixel.x + dx >= image.getSize().x) return false;
 	if (pixel.y + dy < 0 || pixel.y + dy >= image.getSize().y) return false;
-	if (image.getPixel(pixel.x + dx, pixel.y + dy) == sf::Color(0, 0, 0)) return false;
+	if (image.getPixel(sf::Vector2u(pixel.x + dx, pixel.y + dy)) == sf::Color(0, 0, 0)) return false;
 	return true;
 }
 
@@ -87,11 +87,11 @@ bool PixelTraversal::validSubImage(std::vector<sf::Vector3i> checkedPixels)
 sf::Image PixelTraversal::creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft, sf::Vector2i size)
 {
 	sf::Image subImage = sf::Image();
-	subImage.create(size.x + 1 - topLeft.x, size.y + 1 - topLeft.y, sf::Color(0, 0, 0));
+	subImage.create(sf::Vector2u(size.x + 1 - topLeft.x, size.y + 1 - topLeft.y), sf::Color(0, 0, 0));
 
 	for (const sf::Vector3i pixel : checkedPixels)
 	{
-		subImage.setPixel(pixel.x - topLeft.x, pixel.y - topLeft.y, sf::Color(pixel.z, pixel.z, pixel.z));
+		subImage.setPixel(sf::Vector2u(pixel.x - topLeft.x, pixel.y - topLeft.y), sf::Color(pixel.z, pixel.z, pixel.z));
 	}
 	return subImage;
 }

@@ -13,13 +13,13 @@ sf::Image ResizeImage::resizeImageToSquare(const sf::Image& image)
 sf::Image ResizeImage::resizeImage(const sf::Image& image, sf::Vector2u targetDimensions)
 {
 	sf::Image outputImage;
-	outputImage.create(targetDimensions.x, targetDimensions.y, sf::Color(0, 0, 0));
+	outputImage.create(sf::Vector2u(targetDimensions.x, targetDimensions.y), sf::Color(0, 0, 0));
 
 	sf::Vector2u dimensionsDifference = getDimensionDifference(image.getSize(), targetDimensions);
 
 	for (int i = 0; i < image.getSize().x; i++)
 		for (int j = 0; j < image.getSize().y; j++)
-			outputImage.setPixel(i + dimensionsDifference.x, j + dimensionsDifference.y, image.getPixel(i, j));
+			outputImage.setPixel(sf::Vector2u(i + dimensionsDifference.x, j + dimensionsDifference.y), image.getPixel(sf::Vector2u(i, j)));
 
 	return outputImage;
 }

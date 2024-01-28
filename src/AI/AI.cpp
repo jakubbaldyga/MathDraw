@@ -16,7 +16,7 @@ torch::Tensor AI::preprocessImage(const sf::Image& image)
 	for (int i = 0; i < TRAINED_IMAGE_WIDTH; ++i) {
 		for (int j = 0; j < TRAINED_IMAGE_HEIGHT; ++j) {
 			//r=g=b
-			imageTensor[0][i][j] = static_cast<float>(image.getPixel(j,i).r) / 255.f;
+			imageTensor[0][i][j] = static_cast<float>(image.getPixel(sf::Vector2u(j,i)).r) / 255.f;
 		}
 	}
 
