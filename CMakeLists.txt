@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.8.0)
 project(MathDraw)
-
+set(BUILD_SHARED_LIBS OFF)
 # Fetch argparse library
 include(FetchContent)
 FetchContent_Declare(
@@ -17,6 +17,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 # Fetch sfml library
+
 FetchContent_Declare(
     sfml
     GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -33,7 +34,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
 else()
     FetchContent_Declare(
         libtorch
-        URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-debug-2.1.2%2Bcpu.zip
+        URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-debug-2.0.1%2Bcpu.zip
     )
     FetchContent_MakeAvailable(libtorch)
     set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
@@ -74,16 +75,26 @@ set(SOURCES
     src/Utilities/Strings.cpp
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
 
 # Add executable
 add_executable(MathDraw ${SOURCES} "src/main.cpp")
 
-target_link_libraries(MathDraw "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse)
+target_link_libraries(MathDraw ${TORCH_LIBRARIES} sfml-graphics sfml-window sfml-system argparse)
 set_property(TARGET MathDraw PROPERTY CXX_STANDARD 20)
+
+install(TARGETS MathDraw)
+
+# Add executable
+add_executable(MathDrawApp ${SOURCES} "src/AppMain.cpp")
+
+target_link_libraries(MathDrawApp ${TORCH_LIBRARIES} sfml-graphics sfml-window sfml-system argparse)
+set_property(TARGET MathDrawApp PROPERTY CXX_STANDARD 20)
+
+install(TARGETS MathDrawApp)
 
 enable_testing()
 add_executable(MathDrawTest ${SOURCES} "tests/Tests.cpp")
 
-target_link_libraries(MathDrawTest "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
+target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
