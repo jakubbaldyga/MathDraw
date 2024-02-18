@@ -64,7 +64,14 @@ public:
                         drawTool->onMouseReleased();
                     
                     aiOutput->update(contentImage.getImage());
+                    contentImage.savePreviousImage();
                 }
+
+                //undo
+                if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z && event.key.control) {
+					contentImage.loadPreviousImage();
+                    aiOutput->update(contentImage.getImage());
+				}
             }
 
             contentImage.handleMovement();

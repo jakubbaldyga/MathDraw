@@ -13,6 +13,10 @@ bool operator==(sf::Image i, sf::Image j) {
     return true;
 }
 
+void copyImage(sf::Image& destination, sf::Image& source) {
+    destination.create(source.getSize(), source.getPixelsPtr());
+}
+
 class ContentImage : public sf::Sprite
 {
     sf::Image image;
@@ -23,6 +27,7 @@ class ContentImage : public sf::Sprite
 
     const int movementSpeed = 5;
 
+    bool hasUndone = false;
     sf::Image previousImage;
     sf::Image tempImage;
 
@@ -37,21 +42,29 @@ public:
         setTexture(texture, true);
         setPosition(imageStartingPosition);
 
-        previousImage.copy(image, sf::Vector2u(0,0));
-        tempImage.copy(image, sf::Vector2u(0,0));
+        copyImage(previousImage, image);
+        copyImage(tempImage, image);
     }
 
     void setPixel(sf::Vector2u position, sf::Color color) {
         image.setPixel(position, color);
     }
 
-    void updateTexture() {
-        texture.loadFromImage(image);
+    void savePreviousImage() {
+        copyImage(previousImage, tempImage);
+        copyImage(tempImage, image);
+
+        hasUndone = false;
     }
 
-    sf::Image getImage() {
-		return image;
-	}
+    void loadPreviousImage() {
+        if (hasUndone) return;
+        copyImage(image, previousImage);
+        copyImage(tempImage, previousImage);
+        updateTexture();
+
+        hasUndone = true;
+    }
 
     void handleMovement() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::W)) {
@@ -68,4 +81,12 @@ public:
             move(sf::Vector2f(-movementSpeed, 0));
         }
     }
+
+    void updateTexture() {
+        texture.loadFromImage(image);
+    }
+
+    sf::Image getImage() {
+		return image;
+	}
 };
