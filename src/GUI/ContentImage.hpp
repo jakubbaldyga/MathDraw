@@ -80,6 +80,13 @@ public:
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::D)) {
             move(sf::Vector2f(-movementSpeed, 0));
         }
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Q)) {
+			zoomIn();
+		}
+		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::E)) {
+			zoomOut();
+		}
     }
 
     void updateTexture() {
@@ -89,4 +96,14 @@ public:
     sf::Image getImage() {
 		return image;
 	}
+
+    void zoomIn() {
+		scale(sf::Vector2f(1.1f, 1.1f));
+        setPosition(getPosition() * 1.1f);
+	}
+
+    void zoomOut() {
+        scale(sf::Vector2f(0.9f, 0.9f));
+        setPosition(getPosition() * 0.9f);
+    }
 };
