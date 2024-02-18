@@ -73,6 +73,13 @@ set(SOURCES
     src/Utilities/Utilties.hpp
     src/Utilities/Strings.hpp
     src/Utilities/Strings.cpp
+
+    src/GUI/AIOutput.hpp
+    src/GUI/ContentImage.hpp
+    src/GUI/WindowManager.hpp
+    
+    src/GUI/Tools/Tool.hpp
+    src/GUI/Tools/DrawTool.hpp
 )
 
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})

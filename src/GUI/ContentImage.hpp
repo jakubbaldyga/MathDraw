@@ -1,64 +1,71 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-class ContentImage : public sf::Drawable
+bool operator==(sf::Image i, sf::Image j) {
+    if (i.getSize() != j.getSize()) return false;
+    for (int x = 0; x < i.getSize().x; x++) {
+        for (int y = 0; y < i.getSize().y; y++) {
+            if (i.getPixel(sf::Vector2u(x, y)) != j.getPixel(sf::Vector2u(x, y))) return false;
+        }
+    }
+    return true;
+}
+
+class ContentImage : public sf::Sprite
 {
     sf::Image image;
     sf::Texture texture;
-    sf::Sprite sprite = sf::Sprite(texture);
 
-    //sf::Vector2f imagePosition = sf::Vector2f(2500 - 600, 2500 - 400);
-    sf::Vector2f imagePosition = sf::Vector2f(0,0);
+    const sf::Vector2u imageSize = sf::Vector2u(5000, 5000);
+    const sf::Vector2f imageStartingPosition = sf::Vector2f(-2500 + 600, -2500 + 400);
+
+    const int movementSpeed = 5;
+
+    sf::Image previousImage;
+    sf::Image tempImage;
 
 public:
-    ContentImage()
+
+    ContentImage(): sf::Sprite(texture)
     {
-        image.create(sf::Vector2u(5000, 5000), sf::Color::Blue);
+        image = sf::Image();
+        image.create(imageSize, sf::Color::Black);
+        
+        updateTexture();
+        setTexture(texture, true);
+        setPosition(imageStartingPosition);
 
-        for (int i = 0; i < 5000; i++)
-        {
-            for (int j = 0; j < 5000; j++)
-            {
-				image.setPixel(sf::Vector2u(i, j), sf::Color::Blue);
-			}
-		}
-
-        if (!texture.loadFromImage(image)) {
-			std::cout<<"Error loading texture from image"<<std::endl;
-		}
-        sprite = sf::Sprite(texture);
-        sprite.setTexture(texture);
-        sprite.setPosition(imagePosition);
+        previousImage.copy(image, sf::Vector2u(0,0));
+        tempImage.copy(image, sf::Vector2u(0,0));
     }
 
-    void fillPixel(sf::Vector2i cursorPosition, sf::Color color)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                sf::Vector2u pos = sf::Vector2u(cursorPosition.x + i, cursorPosition.y + j);
-                image.setPixel(pos, color);
-            }
-        }
+    void setPixel(sf::Vector2u position, sf::Color color) {
+        image.setPixel(position, color);
+    }
+
+    void updateTexture() {
         texture.loadFromImage(image);
-        sprite.setTexture(texture);
     }
 
-    sf::Color getPixelColor(sf::Vector2i cursorPosition) 
-    {
-        sf::Vector2u pos = sf::Vector2u(cursorPosition.x, cursorPosition.y);
-		return image.getPixel(pos);
+    sf::Image getImage() {
+		return image;
 	}
 
-    void moveImage(sf::Vector2f direction)
-    {
-        imagePosition += direction;
-        sprite.setPosition(imagePosition);
-    }
+    void handleMovement() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::W)) {
+            move(sf::Vector2f(0, movementSpeed));
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::S)) {
+            move(sf::Vector2f(0, -movementSpeed));
+        }
 
-    void draw(sf::RenderTarget& target, const sf::RenderStates& states) const override
-    {
-        target.draw(this->sprite, states);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::A)) {
+            move(sf::Vector2f(movementSpeed, 0));
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::D)) {
+            move(sf::Vector2f(-movementSpeed, 0));
+        }
     }
 };

@@ -14,14 +14,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\AI\\Net",
-    "\\src\\AI\\PixelTraversal",
-    "\\src\\AI\\ResizeImage",
-    "\\src\\AI\\ScaleImage",
-    "\\src\\Parser\\RecogniseSubCommand",
-    "\\src\\Parser\\SubCommand",
+    "\\src\\GUI",
+    "\\src\\GUI\\Tools",
+    "\\src\\Utilities",
     "\\tests"
   ],
-  "SelectedNode": "\\src\\AppMain.cpp",
+  "SelectedNode": "\\src\\GUI\\WindowManager.hpp",
   "PreviewInSolutionExplorer": false
 }
