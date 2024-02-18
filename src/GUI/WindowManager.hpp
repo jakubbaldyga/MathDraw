@@ -47,7 +47,7 @@ public:
 
                 if (event.type == sf::Event::MouseButtonPressed) {
                     sf::Vector2i mousePosition = sf::Mouse::getPosition(*this);
-
+                    std::cout<< "Mouse pressed at " << mousePosition.x << " " << mousePosition.y << std::endl;
                     if (event.mouseButton.button == sf::Mouse::Button::Right)
                         eraseTool->onMousePressed(mousePosition);
                     
@@ -71,6 +71,12 @@ public:
                 if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::Z && event.key.control) {
 					contentImage.loadPreviousImage();
                     aiOutput->update(contentImage.getImage());
+				}
+
+                //erase everything
+                if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Key::E && event.key.control) {
+					contentImage.clear();
+					aiOutput->update(contentImage.getImage());
 				}
             }
 

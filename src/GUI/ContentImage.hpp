@@ -106,4 +106,13 @@ public:
         scale(sf::Vector2f(0.9f, 0.9f));
         setPosition(getPosition() * 0.9f);
     }
+
+    void clear() {
+        image = sf::Image();
+        image.create(imageSize, sf::Color::Black);
+        copyImage(previousImage, image);
+        copyImage(tempImage, image);
+        updateTexture();
+        savePreviousImage();
+    }
 };

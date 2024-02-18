@@ -17,6 +17,8 @@ class DrawTool: protected Tool {
 			for (int y = -strokeSize/2; y < strokeSize/2; y++)
 			{
 				sf::Vector2u pos = sf::Vector2u(cursorPosition.x - contentImage->getPosition().x + x, cursorPosition.y - contentImage->getPosition().y + y);
+				pos.x/=contentImage->getScale().x;
+				pos.y/=contentImage->getScale().y;
 				contentImage->setPixel(pos, color);
 			}
 		}
