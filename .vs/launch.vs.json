@@ -13,6 +13,13 @@
       "project": "CMakeLists.txt",
       "projectTarget": "MathDrawTest.exe",
       "name": "MathDrawTest.exe"
+    },
+    {
+      "type": "dll",
+      "exe": "",
+      "project": "CMakeLists.txt",
+      "projectTarget": "sfml-graphics-3.dll (_deps\\sfml-build\\bin\\sfml-graphics-3.dll)",
+      "name": "sfml-graphics-3.dll (_deps\\sfml-build\\bin\\sfml-graphics-3.dll)"
     }
   ]
 }

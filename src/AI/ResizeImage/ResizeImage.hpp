@@ -3,7 +3,7 @@
 
 /**
 * \author Jakub Baldyga
-* \date 16/12/2023
+* \date 16/12/2023ss
 * \copyright (c) 2023 Jakub Baldyga, MIT License
 * \brief Static class designed to resize an image.
 * \details **Description:**<br>
