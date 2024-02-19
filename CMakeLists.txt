@@ -74,13 +74,21 @@ set(SOURCES
     src/Utilities/Strings.hpp
     src/Utilities/Strings.cpp
 
-    src/GUI/AIOutput.hpp
-    src/GUI/ContentImage.hpp
+    src/GUI/AIOutput/AIOutput.hpp
+    src/GUI/AIOutput/AIOutput.cpp
+
+    src/GUI/ContentImage/ContentImage.hpp
+    src/GUI/ContentImage/ContentImage.cpp
+
+    src/GUI/WindowManager.cpp
     src/GUI/WindowManager.hpp
     
-    src/GUI/Tools/Tool.hpp
-    src/GUI/Tools/DrawTool.hpp
-)
+    src/GUI/Tools/Tool/Tool.hpp
+    src/GUI/Tools/DrawTool/DrawTool.hpp
+    src/GUI/Tools/BucketTool/BucketTool.cpp
+    src/GUI/Tools/BucketTool/BucketTool.hpp
+    
+ "src/GUI/Tools/DrawTool/DrawTool.cpp")
 
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
 
@@ -105,3 +113,8 @@ add_executable(MathDrawTest ${SOURCES} "tests/Tests.cpp")
 
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
+
+add_executable(MathDrawFonctionallityTest ${SOURCES} "tests/FunctionalityTest.cpp")
+
+target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
+set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)

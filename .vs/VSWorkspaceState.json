@@ -14,10 +14,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\AI",
     "\\src\\GUI",
+    "\\src\\GUI\\AIOutput",
+    "\\src\\GUI\\ContentImage",
     "\\src\\GUI\\Tools",
-    "\\src\\Utilities",
-    "\\tests"
+    "\\src\\GUI\\Tools\\BucketTool",
+    "\\src\\GUI\\Tools\\DrawTool",
+    "\\src\\GUI\\Tools\\Tool"
   ],
+  "SelectedNode": "\\tests\\FunctionalityTest.cpp",
   "PreviewInSolutionExplorer": false
 }
