@@ -1,12 +1,8 @@
 ﻿cmake_minimum_required(VERSION 3.8.0)
 project(MathDraw)
-<<<<<<< Updated upstream
 
-# Fetch argparse library
-=======
 set(BUILD_SHARED_LIBS OFF)
 
->>>>>>> Stashed changes
 include(FetchContent)
 
 FetchContent_Declare(
@@ -22,10 +18,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(Catch2)
 
-<<<<<<< Updated upstream
-# Fetch sfml library
-=======
->>>>>>> Stashed changes
 FetchContent_Declare(
     sfml
     GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -81,10 +73,8 @@ set(BACKEND_SOURCES
     src/Utilities/Strings.hpp
     src/Utilities/Strings.cpp
 )
-<<<<<<< Updated upstream
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
-=======
 
 set(CLI_SOURCES
     src/Parser/Parser.hpp
@@ -129,14 +119,7 @@ set(APP_SOURCES
 )
 
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
->>>>>>> Stashed changes
 
-
-<<<<<<< Updated upstream
-target_link_libraries(MathDraw "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse)
-set_property(TARGET MathDraw PROPERTY CXX_STANDARD 20)
-
-=======
 add_executable(MathDrawCLI ${BACKEND_SOURCES} ${CLI_SOURCES} "src/CLIMain.cpp")
 target_link_libraries(MathDrawCLI ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)
 set_property(TARGET MathDrawCLI PROPERTY CXX_STANDARD 20)
@@ -148,13 +131,8 @@ target_link_libraries(MathDrawApp ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)
 set_property(TARGET MathDrawApp PROPERTY CXX_STANDARD 20)
 install(TARGETS MathDrawApp)
 
->>>>>>> Stashed changes
 enable_testing()
 
-<<<<<<< Updated upstream
-target_link_libraries(MathDrawTest "${TORCH_LIBRARIES}" sfml-graphics sfml-window sfml-system argparse Catch2::Catch2WithMain)
-set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
-=======
 add_executable(MathDrawTest ${BACKEND_SOURCES} "tests/Tests.cpp")
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
@@ -162,4 +140,3 @@ set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
 add_executable(MathDrawFonctionallityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
 target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)
->>>>>>> Stashed changes
