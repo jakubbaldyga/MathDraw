@@ -24,7 +24,7 @@ public:
 	/// @param targetDimensions - dimensions of the new, resized image
 	/// @return  **sf::Image** - resized image
 	static sf::Image resizeImage(const sf::Image& inputImage, sf::Vector2u targetDimensions);
-private:
 
+private:
 	static sf::Vector2u getDimensionDifference(sf::Vector2u inputDimensions, sf::Vector2u targetDimensions);
 };

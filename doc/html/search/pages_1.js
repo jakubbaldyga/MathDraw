@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mathdraw_0',['Documentation of MathDraw',['../index.html',1,'']]]
+  ['command_20line_20interface_0',['Command line interface',['../cli.html',1,'']]]
 ];

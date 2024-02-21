@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['_7ehiddensubcommands_0',['~HiddenSubCommands',['../class_hidden_sub_commands.html#a7de8ef46cfceaa4520cbec1d823d40ab',1,'HiddenSubCommands']]],
-  ['_7eparser_1',['~Parser',['../class_parser.html#a3e658b5917a93a3ef648050d060e3a93',1,'Parser']]]
+  ['welcome_0',['Welcome',['../index.html#autotoc_md11',1,'']]],
+  ['will_20show_20you_20how_20to_20use_20mathdraw_20application_1',['This tutorial will show you how to use MathDraw application.',['../app.html#autotoc_md0',1,'']]],
+  ['windowmanager_2',['WindowManager',['../class_window_manager.html',1,'WindowManager'],['../class_window_manager.html#a3a283b34c19aaa20296befaabad4d29b',1,'WindowManager::WindowManager()']]],
+  ['windowmanager_2ecpp_3',['WindowManager.cpp',['../_window_manager_8cpp.html',1,'']]],
+  ['windowmanager_2ehpp_4',['WindowManager.hpp',['../_window_manager_8hpp.html',1,'']]]
 ];

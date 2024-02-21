@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['parseargs_0',['parseArgs',['../class_parser.html#a43a67dc84aff3fd185c3bbd1ec2c000f',1,'Parser']]],
-  ['parser_1',['Parser',['../class_parser.html#af4870182dafcb9f1e6e0280f25dd3066',1,'Parser']]]
+  ['net_0',['Net',['../struct_net.html#aaad4df79dedd0dda74f7b9c061867338',1,'Net']]]
 ];

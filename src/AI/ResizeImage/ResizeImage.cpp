@@ -26,8 +26,6 @@ sf::Image ResizeImage::resizeImage(const sf::Image& image, sf::Vector2u targetDi
 
 sf::Vector2u ResizeImage::getDimensionDifference(sf::Vector2u currentDimensions, sf::Vector2u targetDimensions)
 {
-	sf::Vector2u dimensionsDifference;
-	dimensionsDifference.x = (targetDimensions.x - currentDimensions.x) / 2;
-	dimensionsDifference.y = (targetDimensions.y - currentDimensions.y) / 2;
+	sf::Vector2f dimensionsDifference = (targetDimensions - currentDimensions) / 2;
 	return sf::Vector2u(dimensionsDifference.x, dimensionsDifference.y);
 }

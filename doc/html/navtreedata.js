@@ -26,6 +26,8 @@ var NAVTREE =
 [
   [ "MathDraw", "index.html", [
     [ "Documentation of MathDraw", "index.html", null ],
+    [ "MathDraw Application", "app.html", null ],
+    [ "Command line interface", "cli.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -33,7 +35,8 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['net_0',['Net',['../struct_net.html#aaad4df79dedd0dda74f7b9c061867338',1,'Net']]]
+  ['loadmodel_0',['loadModel',['../class_a_i.html#a9356ee5687a7cb82d4ca822dfff0c0df',1,'AI']]],
+  ['loadpreviousimage_1',['loadPreviousImage',['../class_content_image.html#a12b8796173df7bbe4d53e32a33d8d159',1,'ContentImage']]]
 ];

@@ -30,13 +30,11 @@ public:
 	static const std::string RESIZE_COMMAND_NAME;
 	static const std::string RESIZE_COMMAND_DESCRRIPTION;
 
-	//specify
+	//specify instructions
 	static const std::string SPECIFY_IMAGE_FILE;
 	static const std::string SPECIFY_MODEL_FILE;
 	static const std::string SPECIFY_OUTPUT_FILE;
 	static const std::string SPECIFY_NUMBER_BASE_SYSTEM;
-
 	static const std::string SPECIFY_WIDTH;
 	static const std::string SPECIFY_HEIGHT;
-
 };

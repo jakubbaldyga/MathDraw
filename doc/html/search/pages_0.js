@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['documentation_20of_20mathdraw_0',['Documentation of MathDraw',['../index.html',1,'']]]
+  ['application_0',['MathDraw Application',['../app.html',1,'']]]
 ];

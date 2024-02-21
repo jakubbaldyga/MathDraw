@@ -4,18 +4,13 @@ std::vector<sf::Image> PixelTraversal::getImages(sf::Image image)
 {
 	std::vector<sf::Image> images = std::vector<sf::Image>();
 
-	for (int x = 0; x < image.getSize().x; x++)
-	{
-		for (int y = 0; y < image.getSize().y; y++)
-		{
-			if (image.getPixel(sf::Vector2u(x, y)).r != 0)
-			{
-				try
-				{
+	for (int x = 0; x < image.getSize().x; x++) {
+		for (int y = 0; y < image.getSize().y; y++) {
+			if (image.getPixel(sf::Vector2u(x, y)).r != 0) {
+				try {
 					images.push_back(getSubImage(image, x, y));
 				}
-				catch (std::exception e)
-				{
+				catch (std::exception e) {
 					continue;
 				}
 			}
@@ -58,7 +53,6 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 
 	if (!validSubImage(checkedPixels))
 		throw std::exception("Sub image not valid");
-
 
 	return creteSubImage(checkedPixels, topLeft, size);
 }

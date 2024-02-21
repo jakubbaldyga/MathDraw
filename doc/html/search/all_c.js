@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['of_20mathdraw_0',['Documentation of MathDraw',['../index.html',1,'']]],
-  ['one_20command_20available_20to_20everyone_3a_1',['There is only one command available to everyone:',['../index.html#autotoc_md5',1,'']]],
-  ['only_202_20commands_20available_3a_2',['For now there are only 2 commands available:',['../index.html#autotoc_md7',1,'']]],
-  ['only_20one_20command_20available_20to_20everyone_3a_3',['There is only one command available to everyone:',['../index.html#autotoc_md5',1,'']]],
-  ['operator_2f_4',['operator/',['../_utilties_8hpp.html#a29eea7163ddc3deca305571ca1983f42',1,'Utilties.hpp']]]
+  ['net_0',['Net',['../struct_net.html',1,'Net'],['../struct_net.html#aaad4df79dedd0dda74f7b9c061867338',1,'Net::Net()']]],
+  ['net_2ecpp_1',['Net.cpp',['../_net_8cpp.html',1,'']]],
+  ['net_2ehpp_2',['Net.hpp',['../_net_8hpp.html',1,'']]],
+  ['now_20there_20are_203_20commands_20available_3a_3',['For now there are 3 commands available:',['../cli.html#autotoc_md8',1,'']]]
 ];

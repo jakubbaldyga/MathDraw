@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['_7ehiddensubcommands_0',['~HiddenSubCommands',['../class_hidden_sub_commands.html#a7de8ef46cfceaa4520cbec1d823d40ab',1,'HiddenSubCommands']]],
-  ['_7eparser_1',['~Parser',['../class_parser.html#a3e658b5917a93a3ef648050d060e3a93',1,'Parser']]]
+  ['savepreviousimage_0',['savePreviousImage',['../class_content_image.html#a1ac20e122f36ad4a339b7c9d7bcc2fdd',1,'ContentImage']]],
+  ['scaleimage_1',['scaleImage',['../class_scale_image.html#ad1658e65404e5bbe0ea71c738d7aec83',1,'ScaleImage']]],
+  ['scalesubcommand_2',['ScaleSubCommand',['../class_scale_sub_command.html#adca6926e2c8d0c09fe4620e4d22f636d',1,'ScaleSubCommand']]],
+  ['setpixel_3',['setPixel',['../class_content_image.html#a9260dbe623e2a6149d94a29a15884be9',1,'ContentImage']]],
+  ['subcommand_4',['SubCommand',['../class_sub_command.html#a82e3a4d8c880888520d417624b050563',1,'SubCommand']]]
 ];

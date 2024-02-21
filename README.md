@@ -1,4 +1,4 @@
-# Mentoring
+# MathDraw
 
 ## Project description
 The program is designed to calculate hand-drawn calculations. <br>
@@ -11,13 +11,22 @@ The program is designed to calculate hand-drawn calculations. <br>
 ### Platform:
  - Windows
 ### C++ standard
- - CPP 17
+ - CPP 20
 ### Third party libraries:
 - libTorch 2.0.1 - https://pytorch.org
-- SFML 2.6.1 - https://www.sfml-dev.org/download/sfml/2.6.1/
-- ArgParse 3.0 - https://github.com/p-ranav/argparse
+- SFML - https://github.com/SFML/SFML.git
+- ArgParse - https://github.com/p-ranav/argparse.git
+- Catch2 - https://github.com/catchorg/Catch2.git
 
-### Tools
- - IDE: Visual Studio Community 2022
- - Compiler: built-in MSVC(Micrsoft Visual C++) version 143 for x86/x64 architecture
- - SDK version: 10
+### Building, installing and running
+
+```bash
+git clone https://github.com/jakubbaldyga/MathDraw.git
+cd MathDraw
+
+# Build
+mkdir build
+cd build
+cmake ..
+make
+```

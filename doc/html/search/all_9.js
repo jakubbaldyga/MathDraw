@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loadmodel_0',['loadModel',['../class_a_i.html#a9356ee5687a7cb82d4ca822dfff0c0df',1,'AI']]]
+  ['interface_0',['Command line interface',['../cli.html',1,'']]],
+  ['is_20one_20command_20available_20to_20everyone_3a_1',['There is one command available to everyone:',['../cli.html#autotoc_md6',1,'']]]
 ];

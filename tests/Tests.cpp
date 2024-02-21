@@ -5,6 +5,13 @@
 #include "../src/AI/PixelTraversal/PixelTraversal.hpp"
 #include "../src/AI/AI.hpp"
 
+/**
+* \author Jakub Baldyga
+* \date 29/01/2024
+* \copyright (c) 2023 Jakub Baldyga, MIT License
+* \brief Test class for functionallity testing.
+*/
+
 class TestClass {
 public:
     bool validPixel(const sf::Image& image, sf::Vector3i pixel, int dx, int dy) {

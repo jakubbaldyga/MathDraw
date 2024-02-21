@@ -119,10 +119,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a7e2c21dbd3b0553b4e6a89a538d9b945" id="r_a7e2c21dbd3b0553b4e6a89a538d9b945"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e2c21dbd3b0553b4e6a89a538d9b945">GetExecutableDirectory</a> ()</td></tr>
 <tr class="memdesc:a7e2c21dbd3b0553b4e6a89a538d9b945"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that retrieves the directory of the executable, works only on windows  <br /></td></tr>
 <tr class="separator:a7e2c21dbd3b0553b4e6a89a538d9b945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ecb84cb09b3bb1ce2538dbb745a46c" id="r_ab0ecb84cb09b3bb1ce2538dbb745a46c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
+<tr class="memitem:ab0ecb84cb09b3bb1ce2538dbb745a46c"><td class="memTemplItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab0ecb84cb09b3bb1ce2538dbb745a46c">operator*</a> (sf::Vector2&lt; T &gt; a, sf::Vector2&lt; U &gt; b)</td></tr>
+<tr class="memdesc:ab0ecb84cb09b3bb1ce2538dbb745a46c"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator * that provides multiplication for sf::Vector2 and sf::Vector2  <br /></td></tr>
+<tr class="separator:ab0ecb84cb09b3bb1ce2538dbb745a46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29eea7163ddc3deca305571ca1983f42" id="r_a29eea7163ddc3deca305571ca1983f42"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
 <tr class="memitem:a29eea7163ddc3deca305571ca1983f42"><td class="memTemplItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a29eea7163ddc3deca305571ca1983f42">operator/</a> (sf::Vector2&lt; T &gt; a, sf::Vector2&lt; U &gt; b)</td></tr>
-<tr class="memdesc:a29eea7163ddc3deca305571ca1983f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that provides division for sf::Vector2 and sf::Vector2  <br /></td></tr>
+<tr class="memdesc:a29eea7163ddc3deca305571ca1983f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator / that provides division for sf::Vector2 and sf::Vector2  <br /></td></tr>
 <tr class="separator:a29eea7163ddc3deca305571ca1983f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a147221676441cdb627396f96a318f00f" id="r_a147221676441cdb627396f96a318f00f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
+<tr class="memitem:a147221676441cdb627396f96a318f00f"><td class="memTemplItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a147221676441cdb627396f96a318f00f">operator/</a> (sf::Vector2&lt; T &gt; a, U b)</td></tr>
+<tr class="memdesc:a147221676441cdb627396f96a318f00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator / that provides division for sf::Vector2 and number  <br /></td></tr>
+<tr class="separator:a147221676441cdb627396f96a318f00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6197a3197cbe50d5a7a13295f8248a19" id="r_a6197a3197cbe50d5a7a13295f8248a19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6197a3197cbe50d5a7a13295f8248a19">operator==</a> (sf::Image &amp;img1, sf::Image &amp;img2)</td></tr>
+<tr class="memdesc:a6197a3197cbe50d5a7a13295f8248a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == that provides comparison for sf::Image  <br /></td></tr>
+<tr class="separator:a6197a3197cbe50d5a7a13295f8248a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities file. </p>
@@ -158,8 +169,41 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab0ecb84cb09b3bb1ce2538dbb745a46c" name="ab0ecb84cb09b3bb1ce2538dbb745a46c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ecb84cb09b3bb1ce2538dbb745a46c">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector2f operator* </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2&lt; U &gt;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator * that provides multiplication for sf::Vector2 and sf::Vector2 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>- first vector </td></tr>
+    <tr><td class="paramname">b</td><td>- second vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>sf::Vector2f</b> - result of multiplication a*b </dd></dl>
+
+</div>
+</div>
 <a id="a29eea7163ddc3deca305571ca1983f42" name="a29eea7163ddc3deca305571ca1983f42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29eea7163ddc3deca305571ca1983f42">&#9670;&#160;</a></span>operator/()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a29eea7163ddc3deca305571ca1983f42">&#9670;&#160;</a></span>operator/() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +223,7 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>function that provides division for sf::Vector2 and sf::Vector2 </p>
+<p>operator / that provides division for sf::Vector2 and sf::Vector2 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>- first vector </td></tr>
@@ -188,6 +232,77 @@ template&lt;typename T , typename U &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>sf::Vector2f</b> - result of division a/b </dd></dl>
+
+</div>
+</div>
+<a id="a147221676441cdb627396f96a318f00f" name="a147221676441cdb627396f96a318f00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a147221676441cdb627396f96a318f00f">&#9670;&#160;</a></span>operator/() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector2f operator/ </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">U</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator / that provides division for sf::Vector2 and number </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>- vector </td></tr>
+    <tr><td class="paramname">b</td><td>- number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>sf::Vector2f</b> - result of division a/b </dd></dl>
+
+</div>
+</div>
+<a id="a6197a3197cbe50d5a7a13295f8248a19" name="a6197a3197cbe50d5a7a13295f8248a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6197a3197cbe50d5a7a13295f8248a19">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">sf::Image &amp;</td>          <td class="paramname"><span class="paramname"><em>img1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Image &amp;</td>          <td class="paramname"><span class="paramname"><em>img2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>operator == that provides comparison for sf::Image </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">img1</td><td>- first image </td></tr>
+    <tr><td class="paramname">img2</td><td>- second image return <b>bool</b> - result of comparison. True if images are the same, false otherwise </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

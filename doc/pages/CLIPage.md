@@ -1,11 +1,9 @@
-@mainpage Documentation of MathDraw
+@page cli Command line interface
 
-##Welcome
-Welcome to the official MathDraw documentation. Here you will find a detailed view of all the MathDraw classes and functions.<br>
-If you are looking for tutorials, this is the best place to begin!
+MathDraw also provides command line interface. Check it out.
 
 ##Short example
-Here is a short example, to show you how simple it is to use MathDraw:
+Here is a short example, to show you how simple it is to use:
 \code{.bash}
 	MathDraw recognise -i "image.png"
 \endcode
@@ -23,7 +21,8 @@ Here is a short example, to show you how simple it is to use MathDraw:
 	MathDraw subcommand --help
 \endcode
 
-###There is only one command available to everyone:
+###There is one command available to everyone:
+It recognises the digits on given image and prints them.
 \code{.bash}
 	MathDraw recognise
 \endcode
@@ -40,8 +39,9 @@ To see them all, call:
 	MathDraw hidden --help
 \endcode
 
-###For now there are only 2 commands available:
+###For now there are 3 commands available:
 ####Scale subcommand
+It scales the given image to the given dimensions.
  \code{.bash}
 	 MathDraw hidden scale
  \endcode
@@ -52,6 +52,7 @@ To see them all, call:
 	- -o --output <output> - output file, default is scaledImage.png
 
 ####Traverse subcommand
+It detects and extracts lighter parts of the image to different images. It is used to separate each digit.
   \code{.bash}
 	 MathDraw hidden traverse
  \endcode

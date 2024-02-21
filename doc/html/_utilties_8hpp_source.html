@@ -118,16 +118,54 @@ $(function(){initNavTree('_utilties_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">   28</a></span><span class="keyword">inline</span> std::string <a class="code hl_function" href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">GetExecutableDirectory</a>() {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">char</span> buffer[MAX_PATH];</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    GetModuleFileNameA(<span class="keyword">nullptr</span>, buffer, MAX_PATH);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::string::size_type pos = std::string(buffer).find_last_of(<span class="stringliteral">&quot;\\/&quot;</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> std::string(buffer).substr(0, pos);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_utilties_8hpp.html#a147221676441cdb627396f96a318f00f">   31</a></span>sf::Vector2f <a class="code hl_function" href="_utilties_8hpp.html#a29eea7163ddc3deca305571ca1983f42">operator/</a>(sf::Vector2&lt;T&gt; a, U b)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    sf::Vector2f result;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    result.x = (float)a.x / (<span class="keywordtype">float</span>)b;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    result.y = (float)a.y / (<span class="keywordtype">float</span>)b;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 </div>
-<div class="ttc" id="a_utilties_8hpp_html_a29eea7163ddc3deca305571ca1983f42"><div class="ttname"><a href="_utilties_8hpp.html#a29eea7163ddc3deca305571ca1983f42">operator/</a></div><div class="ttdeci">sf::Vector2f operator/(sf::Vector2&lt; T &gt; a, sf::Vector2&lt; U &gt; b)</div><div class="ttdoc">function that provides division for sf::Vector2 and sf::Vector2</div><div class="ttdef"><b>Definition</b> Utilties.hpp:18</div></div>
-<div class="ttc" id="a_utilties_8hpp_html_a7e2c21dbd3b0553b4e6a89a538d9b945"><div class="ttname"><a href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">GetExecutableDirectory</a></div><div class="ttdeci">std::string GetExecutableDirectory()</div><div class="ttdoc">function that retrieves the directory of the executable, works only on windows</div><div class="ttdef"><b>Definition</b> Utilties.hpp:28</div></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_utilties_8hpp.html#ab0ecb84cb09b3bb1ce2538dbb745a46c">   44</a></span>sf::Vector2f <a class="code hl_function" href="_utilties_8hpp.html#ab0ecb84cb09b3bb1ce2538dbb745a46c">operator*</a>(sf::Vector2&lt;T&gt; a, sf::Vector2&lt;U&gt; b)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    sf::Vector2f result;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    result.x = a.x * b.x;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    result.y = a.y * b.y;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_utilties_8hpp.html#a6197a3197cbe50d5a7a13295f8248a19">   56</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="_utilties_8hpp.html#a6197a3197cbe50d5a7a13295f8248a19">operator==</a>(sf::Image&amp; img1, sf::Image&amp; img2) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (img1.getSize() != img2.getSize()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; img1.getSize().x; i++) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; img1.getSize().y; j++) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">if</span> (img1.getPixel(sf::Vector2u(i, j)) != img2.getPixel(sf::Vector2u(i, j))) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">   70</a></span><span class="keyword">inline</span> std::string <a class="code hl_function" href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">GetExecutableDirectory</a>() {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">char</span> buffer[MAX_PATH];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    GetModuleFileNameA(<span class="keyword">nullptr</span>, buffer, MAX_PATH);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::string::size_type pos = std::string(buffer).find_last_of(<span class="stringliteral">&quot;\\/&quot;</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> std::string(buffer).substr(0, pos);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+</div>
+<div class="ttc" id="a_utilties_8hpp_html_a29eea7163ddc3deca305571ca1983f42"><div class="ttname"><a href="_utilties_8hpp.html#a29eea7163ddc3deca305571ca1983f42">operator/</a></div><div class="ttdeci">sf::Vector2f operator/(sf::Vector2&lt; T &gt; a, sf::Vector2&lt; U &gt; b)</div><div class="ttdoc">operator / that provides division for sf::Vector2 and sf::Vector2</div><div class="ttdef"><b>Definition</b> Utilties.hpp:18</div></div>
+<div class="ttc" id="a_utilties_8hpp_html_a6197a3197cbe50d5a7a13295f8248a19"><div class="ttname"><a href="_utilties_8hpp.html#a6197a3197cbe50d5a7a13295f8248a19">operator==</a></div><div class="ttdeci">bool operator==(sf::Image &amp;img1, sf::Image &amp;img2)</div><div class="ttdoc">operator == that provides comparison for sf::Image</div><div class="ttdef"><b>Definition</b> Utilties.hpp:56</div></div>
+<div class="ttc" id="a_utilties_8hpp_html_a7e2c21dbd3b0553b4e6a89a538d9b945"><div class="ttname"><a href="_utilties_8hpp.html#a7e2c21dbd3b0553b4e6a89a538d9b945">GetExecutableDirectory</a></div><div class="ttdeci">std::string GetExecutableDirectory()</div><div class="ttdoc">function that retrieves the directory of the executable, works only on windows</div><div class="ttdef"><b>Definition</b> Utilties.hpp:70</div></div>
+<div class="ttc" id="a_utilties_8hpp_html_ab0ecb84cb09b3bb1ce2538dbb745a46c"><div class="ttname"><a href="_utilties_8hpp.html#ab0ecb84cb09b3bb1ce2538dbb745a46c">operator*</a></div><div class="ttdeci">sf::Vector2f operator*(sf::Vector2&lt; T &gt; a, sf::Vector2&lt; U &gt; b)</div><div class="ttdoc">operator * that provides multiplication for sf::Vector2 and sf::Vector2</div><div class="ttdef"><b>Definition</b> Utilties.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
