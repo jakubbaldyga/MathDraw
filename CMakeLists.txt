@@ -29,22 +29,13 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
 else()
 	set(SFML_LIBRARIES sfml-graphics-d sfml-window-d sfml-system-d)
 endif()
-
-if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    FetchContent_Declare(
-        libtorch
-        URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-2.0.1%2Bcpu.zip
-    )
-    FetchContent_MakeAvailable(libtorch)
-    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
-else()
-    FetchContent_Declare(
-        libtorch
-        URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-debug-2.1.2%2Bcpu.zip
-    )
-    FetchContent_MakeAvailable(libtorch)
-    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
-endif()
+    
+FetchContent_Declare(
+    libtorch
+    URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-2.0.1%2Bcpu.zip
+)
+FetchContent_MakeAvailable(libtorch)
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
 
 find_package(Torch REQUIRED)
 

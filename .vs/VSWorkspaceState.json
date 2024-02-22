@@ -12,30 +12,8 @@
     ]
   },
   "ExpandedNodes": [
-    "",
-    "\\src",
-<<<<<<< Updated upstream
-    "\\src\\AI",
-    "\\src\\AI\\Net",
-    "\\src\\AI\\PixelTraversal",
-    "\\src\\AI\\ResizeImage",
-    "\\src\\AI\\ScaleImage",
-    "\\src\\Parser",
-    "\\src\\Parser\\RecogniseSubCommand",
-    "\\src\\Parser\\SubCommand"
+    ""
   ],
-  "SelectedNode": "\\src\\AI\\AI.hpp",
-=======
-    "\\src\\GUI",
-    "\\src\\GUI\\Tools",
-    "\\src\\GUI\\Tools\\BucketTool",
-    "\\src\\GUI\\Tools\\DrawTool",
-    "\\src\\GUI\\Tools\\Tool",
-    "\\src\\Parser",
-    "\\src\\Parser\\RecogniseSubCommand",
-    "\\src\\Utilities"
-  ],
-  "SelectedNode": "\\src\\Parser\\Parser.hpp",
->>>>>>> Stashed changes
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
