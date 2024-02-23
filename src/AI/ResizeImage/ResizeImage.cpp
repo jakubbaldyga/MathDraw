@@ -1,11 +1,12 @@
 #include "ResizeImage.hpp"
-#include "../../Utilities/Utilties.hpp"
+#include "Utilties.hpp"
 
 sf::Image ResizeImage::resizeImageToSquare(const sf::Image& image)
 {
 	if(image.getSize().x == image.getSize().y)
 		return image;
 
+	//we resize to the larger side of the image
 	unsigned int maxDimension = std::max(image.getSize().x, image.getSize().y);
 	return resizeImage(image, sf::Vector2u(maxDimension, maxDimension));
 }

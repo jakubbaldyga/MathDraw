@@ -11,6 +11,7 @@ std::vector<sf::Image> PixelTraversal::getImages(sf::Image image)
 					images.push_back(getSubImage(image, x, y));
 				}
 				catch (std::exception e) {
+					std::cout<<e.what()<<std::endl;
 					continue;
 				}
 			}
@@ -21,13 +22,14 @@ std::vector<sf::Image> PixelTraversal::getImages(sf::Image image)
 
 sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 {
+	//3d vectors contains 2d position(x,y) and brightness(z) of the pixel
 	std::vector<sf::Vector3i> pixels;
 	std::vector<sf::Vector3i> checkedPixels;
 
 	pixels.emplace_back(x, y, image.getPixel(sf::Vector2u(x, y)).r);
 	image.setPixel(sf::Vector2u(x, y), sf::Color(0, 0, 0));
 
-	sf::Vector2i size(0, 0);
+	sf::Vector2i bottomRight(0, 0);
 	sf::Vector2i topLeft(x, y);
 
 	do
@@ -41,8 +43,8 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 				pixels.emplace_back(pixels[0].x + i, pixels[0].y + j, image.getPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j)).r);
 				image.setPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j), sf::Color(0, 0, 0));
 
-				size.x = std::max(size.x, pixels[0].x + i);
-				size.y = std::max(size.y, pixels[0].y + j);
+				bottomRight.x = std::max(bottomRight.x, pixels[0].x + i);
+				bottomRight.y = std::max(bottomRight.y, pixels[0].y + j);
 				topLeft.x = std::min(topLeft.x, pixels[0].x + i);
 				topLeft.y = std::min(topLeft.y, pixels[0].y + j);
 			}
@@ -54,14 +56,20 @@ sf::Image PixelTraversal::getSubImage(sf::Image& image, int x, int y)
 	if (!validSubImage(checkedPixels))
 		throw std::exception("Sub image not valid");
 
-	return creteSubImage(checkedPixels, topLeft, size);
+	return creteSubImage(checkedPixels, topLeft, bottomRight);
 }
 
+//it checks if pixel can be traversed
 bool PixelTraversal::validPixel(const sf::Image& image, sf::Vector3i pixel, int dx, int dy)
 {
+	//check if pixel is the same
 	if (dx == 0 && dy == 0) return false;
+	
+	//check if pixel is out of bounds
 	if (pixel.x + dx < 0 || pixel.x + dx >= image.getSize().x) return false;
 	if (pixel.y + dy < 0 || pixel.y + dy >= image.getSize().y) return false;
+	
+	//check if pixel is black (we don't want to traverse black pixels)
 	if (image.getPixel(sf::Vector2u(pixel.x + dx, pixel.y + dy)) == sf::Color(0, 0, 0)) return false;
 	return true;
 }
@@ -71,17 +79,22 @@ bool PixelTraversal::validSubImage(std::vector<sf::Vector3i> checkedPixels)
 	int check = 0;
 	for (const sf::Vector3i pixel : checkedPixels)
 	{
-		if (pixel.z > 150) check++;
+		//under pixel.z we store brightness of the pixel
+		//if pixel is bright enough we count it
+		if (pixel.z > PIXEL_MIN_BRIGHTNESS) check++;
 	}
 
-	if (check < 10) return false;
+	if (check < MIN_PIXEL_IMAGE_COUNT) return false;
 	return true;
 }
 
-sf::Image PixelTraversal::creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft, sf::Vector2i size)
+sf::Image PixelTraversal::creteSubImage(const std::vector<sf::Vector3i>& checkedPixels, sf::Vector2i topLeft, sf::Vector2i bottomRight)
 {
 	sf::Image subImage = sf::Image();
-	subImage.create(sf::Vector2u(size.x + 1 - topLeft.x, size.y + 1 - topLeft.y), sf::Color(0, 0, 0));
+
+	//create subimage with size of the subimage and fill it with black color
+	//we add 1 to the size becouse it's being substracted.
+	subImage.create(sf::Vector2u(bottomRight.x - topLeft.x + 1, bottomRight.y - topLeft.y + 1), sf::Color(0, 0, 0));
 
 	for (const sf::Vector3i pixel : checkedPixels)
 	{

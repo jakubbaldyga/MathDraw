@@ -35,18 +35,21 @@ FetchContent_Declare(
     URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-2.0.1%2Bcpu.zip
 )
 FetchContent_MakeAvailable(libtorch)
+
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
-
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
 find_package(Torch REQUIRED)
-
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(src/Utilities)
+include_directories(src/AI)
+
 set(BACKEND_SOURCES
     src/AI/AI.hpp
     src/AI/AI.cpp
-    
+
     src/AI/Net/Net.hpp
     src/AI/Net/Net.cpp
     
@@ -60,12 +63,9 @@ set(BACKEND_SOURCES
     src/AI/ScaleImage/ScaleImage.cpp
 
     src/Utilities/Utilties.hpp
-    
     src/Utilities/Strings.hpp
     src/Utilities/Strings.cpp
 )
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 set(CLI_SOURCES
     src/Parser/Parser.hpp
@@ -108,8 +108,6 @@ set(APP_SOURCES
     src/GUI/Tools/BucketTool/BucketTool.cpp
     src/GUI/Tools/BucketTool/BucketTool.hpp
 )
-
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
 
 add_executable(MathDrawCLI ${BACKEND_SOURCES} ${CLI_SOURCES} "src/CLIMain.cpp")
 target_link_libraries(MathDrawCLI ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)

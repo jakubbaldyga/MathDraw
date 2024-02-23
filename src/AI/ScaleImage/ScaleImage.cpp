@@ -1,6 +1,6 @@
 ﻿#include "ScaleImage.hpp"
 #include <algorithm>
-#include "../../Utilities/Utilties.hpp"
+#include "Utilties.hpp"
 
 sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, sf::Vector2f position)
 {
@@ -17,10 +17,10 @@ sf::Color ScaleImage::bilinearInterpolation(const sf::Image& image, sf::Vector2f
 				  (1 - dx) * dy		  * image.getPixel(sf::Vector2u(x0, y1)).r +
 				  	   dx  * dy		  * image.getPixel(sf::Vector2u(x1, y1)).r;
 
-	//clamp do wartosci 0-255
+	//clamp to 0-255
 	value = std::max(0.0f, std::min(255.0f, value));
 	
-	return sf::Color(value, value, value, 255);
+	return sf::Color(value, value, value, 255); //r=g=b, alpha=255
 }
 
 

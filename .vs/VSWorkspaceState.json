@@ -12,8 +12,17 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\AI",
+    "\\src\\AI\\PixelTraversal",
+    "\\src\\AI\\ResizeImage",
+    "\\src\\AI\\ScaleImage",
+    "\\src\\Parser",
+    "\\src\\Parser\\HiddenSubCommands",
+    "\\src\\Parser\\HiddenSubCommands\\ResizeSubCommand",
+    "\\src\\Parser\\HiddenSubCommands\\ScaleSubCommand"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\src\\CLIMain.cpp",
   "PreviewInSolutionExplorer": false
 }

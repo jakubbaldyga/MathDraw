@@ -23,6 +23,9 @@ public:
 
 private:
 
+	const static int MIN_PIXEL_IMAGE_COUNT = 10;
+	const static int PIXEL_MIN_BRIGHTNESS = 150;
+
 	static sf::Image getSubImage(sf::Image& image, int x, int y);
 
 	static bool validPixel(const sf::Image& image, sf::Vector3i pixel, int dx, int dy);

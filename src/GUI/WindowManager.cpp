@@ -4,10 +4,9 @@ WindowManager::WindowManager() : sf::RenderWindow(sf::VideoMode(sf::Vector2u(120
 {
     this->setFramerateLimit(FrameRate);
 
-    font.loadFromFile("font.ttf");
+    if(!font.loadFromFile("font.ttf")) std::cout << "Font not loaded" << std::endl;
 
     aiOutput = new AIOutput(font);
-    aiOutput->setPosition(sf::Vector2f(100, 100));
 
     contentImage = new ContentImage(windowSize);
 

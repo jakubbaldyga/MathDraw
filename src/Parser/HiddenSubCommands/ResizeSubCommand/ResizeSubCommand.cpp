@@ -1,8 +1,8 @@
 #include "ResizeSubCommand.hpp"
 #include <SFML/Graphics.hpp>
-#include "../../../AI/ResizeImage/ResizeImage.hpp"
+#include "ResizeImage/ResizeImage.hpp"
 #include <iostream>
-#include "../../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
 ResizeSubCommand::ResizeSubCommand(): SubCommand(Strings::RESIZE_COMMAND_NAME, Strings::RESIZE_COMMAND_DESCRRIPTION )
 {

@@ -40,11 +40,8 @@ AI::AI(const std::string& path)
 {
 	torch::manual_seed(0);
 	device = torch::Device(torch::kCPU);
-	std::cout << "Loading model from " << path << std::endl;
 	loadModel(path);
-	std::cout << "Model loaded" << std::endl;
 	model.eval();
-	std::cout<<"Model is in evaluation mode"<<std::endl;
 }
 
 std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numberSystem)
@@ -53,7 +50,7 @@ std::pair<std::string, int> AI::evaluate(const sf::Image& sourceImage, int numbe
 	std::string outputString = ""; //wynik w systemie danym przez uzytkownika
 
 	std::vector<sf::Image> images = PixelTraversal::getImages(sourceImage);
-	std::cout<<"Images size: "<<images.size()<<std::endl;
+
 	for (int i = 0; i < images.size(); i++)
 	{
 		images[i] = ResizeImage::resizeImageToSquare(images[i]);

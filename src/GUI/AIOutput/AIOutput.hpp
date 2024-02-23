@@ -18,6 +18,10 @@ class AIOutput : public sf::Text
 	AI* ai;
 	void updateThread(const sf::Image& image);
 
+	const static std::string MODEL_PATH;
+	const static int NUMBER_SYSTEM;
+
+	const static int FONT_SIZE;
 public:
 	/// @brief Default constructor
 	/// @param font - font that will be used to display the result

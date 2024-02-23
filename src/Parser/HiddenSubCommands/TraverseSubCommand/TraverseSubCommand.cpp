@@ -1,8 +1,8 @@
 #include "TraverseSubCommand.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "../../../AI/PixelTraversal/PixelTraversal.hpp"
-#include "../../../Utilities/Strings.hpp"
+#include "PixelTraversal/PixelTraversal.hpp"
+#include "Strings.hpp"
 
 TraverseSubCommand::TraverseSubCommand(): SubCommand(Strings::TRAVERSE_COMMAND_NAME, Strings::TRAVERSE_COMMAND_DESCRIPTION)
 {

@@ -2,7 +2,7 @@
 #include <argparse/argparse.hpp>
 #include <SFML/Graphics.hpp>
 #include "../../../AI/ScaleImage/ScaleImage.hpp"
-#include "../../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
 ScaleSubCommand::ScaleSubCommand() : SubCommand(Strings::SCALE_COMMAND_NAME, Strings::SCALE_COMMAND_DESCRIPTION)
 {	

@@ -1,8 +1,8 @@
 #include "RecogniseSubCommand.hpp"
-#include "../../AI/AI.hpp"
+#include "AI.hpp"
 #include <SFML/Graphics.hpp>
-#include "../../Utilities/Utilties.hpp"
-#include "../../Utilities/Strings.hpp"
+#include "Utilties.hpp"
+#include "Strings.hpp"
 RecogniseSubCommand::RecogniseSubCommand() : SubCommand(Strings::RECOGNISE_COMMAND_NAME, Strings::RECOGNISE_COMMAND_DESCRRIPTION)
 {
 	add_argument("--image", "-i")

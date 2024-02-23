@@ -2,7 +2,7 @@
 #include "TraverseSubCommand/TraverseSubCommand.hpp"
 #include "ResizeSubCommand/ResizeSubCommand.hpp"
 #include "ScaleSubCommand/ScaleSubCommand.hpp"
-#include "../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
 HiddenSubCommands::HiddenSubCommands(): SubCommand(Strings::HIDDEN_COMMAND_NAME, Strings::HIDDEN_COMMAND_DESCRRIPTION)
 {

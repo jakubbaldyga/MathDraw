@@ -5,10 +5,9 @@ void ContentImage::clampImagePosition()
 {
     sf::Vector2f position = getPosition();
 
-    position.x = std::max(float(-5000 * getScale().x + (int)windowSize.x), std::min(0.f, position.x));
-    position.y = std::max(float(-5000 * getScale().y + (int)windowSize.y), std::min(0.f, position.y));
+    position.x = std::max(float(-imageSize.x * getScale().x + (int)windowSize.x), std::min(0.f, position.x));
+    position.y = std::max(float(-imageSize.y * getScale().y + (int)windowSize.y), std::min(0.f, position.y));
 
-    std::cout << position.x << " " << position.y << std::endl;
     setPosition(position);
 }
 
@@ -38,8 +37,6 @@ ContentImage::ContentImage(sf::Vector2u windowSize) : sf::Sprite(texture), windo
 
     copyImage(previousImage, image);
     copyImage(tempImage, image);
-
-    std::cout<< getPosition().x << " " << getPosition().y << std::endl;
 }
 
 void ContentImage::setPixel(sf::Vector2u position, sf::Color color) {

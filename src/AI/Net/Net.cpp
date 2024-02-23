@@ -19,7 +19,7 @@ torch::Tensor Net::forward(torch::Tensor x)
 		torch::max_pool2d(conv2_drop->forward(conv2->forward(x)), 2));
 	x = x.view({ -1, 320 });
 	x = torch::relu(fc1->forward(x));
-	x = torch::dropout(x, /*p=*/0.5, /*training=*/is_training());
+	x = torch::dropout(x, 0.5, is_training());
 	x = fc2->forward(x);
-	return torch::log_softmax(x, /*dim=*/1);
+	return torch::log_softmax(x, 1);
 }
