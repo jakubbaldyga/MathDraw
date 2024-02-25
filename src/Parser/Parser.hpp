@@ -2,6 +2,7 @@
 #include <argparse/argparse.hpp>
 #include <vector>
 #include "SubCommand/SubCommand.hpp"
+#include <memory>
 
 /**
 * \author Jakub Baldyga
@@ -14,9 +15,8 @@
 *		  MathDraw --help
 *		  \endcode
 */
-class Parser: public argparse::ArgumentParser
-{
-	std::vector<SubCommand*> subCommands;
+class Parser: public argparse::ArgumentParser {
+	std::vector<std::unique_ptr<SubCommand>> subCommands;
 
 public:
 	/// @brief Default constructor
@@ -27,8 +27,4 @@ public:
 	///@brief parses the arguments, and calls the appropriate subcommand
 	/// @param argc, argv - arguments from main function
 	void parseArgs(int argc, char* argv[]);
-
-	/// @brief Default destructor
-	/// @details deletes array of subcommands pointers
-	~Parser();
 };

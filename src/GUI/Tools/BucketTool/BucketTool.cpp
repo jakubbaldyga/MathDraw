@@ -10,7 +10,7 @@ bool BucketTool::validPixel(const sf::Image& image, sf::Vector3i pixel, int dx, 
 	return true;
 }
 
-BucketTool::BucketTool(ContentImage* contentImage) : Tool(contentImage) {}
+BucketTool::BucketTool(std::shared_ptr<ContentImage> contentImage) : Tool(contentImage) {}
 
 void BucketTool::onMousePressed(sf::Vector2i position)
 {
@@ -30,23 +30,20 @@ void BucketTool::onMousePressed(sf::Vector2i position)
 	//add the first pixel
 	pixels.emplace_back(pos.x, pos.y, image.getPixel(sf::Vector2u(pos.x, pos.y)).r);
 	
-	do
-	{
+	while (pixels.size()) {
 		//we add the pixels around the current pixel
-		for (int i = -1; i < 2; i++)
-		{
-			for (int j = -1; j < 2; j++)
-			{
-				if (!validPixel(image, pixels[0], i, j)) continue;
-
-				pixels.emplace_back(pixels[0].x + i, pixels[0].y + j, image.getPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j)).r);
-				image.setPixel(sf::Vector2u(pixels[0].x + i, pixels[0].y + j), sf::Color(0, 0, 0));
+		for (int x = -1; x < 2; x++) {
+			for (int y = -1; y < 2; y++) {
+				if (validPixel(image, pixels[0], x, y)) {
+					pixels.emplace_back(pixels[0].x + x, pixels[0].y + y, image.getPixel(sf::Vector2u(pixels[0].x + x, pixels[0].y + y)).r);
+					image.setPixel(sf::Vector2u(pixels[0].x + x, pixels[0].y + y), sf::Color(0, 0, 0));
+				}
 			}
 		}
 		//we set the pixel to black so we don't traverse it again
 		contentImage->setPixel(sf::Vector2u(pixels[0].x, pixels[0].y), sf::Color(0, 0, 0));
 		pixels.erase(pixels.begin());
-	} while (pixels.size());
+	};
 
 	contentImage->updateTexture();
 }

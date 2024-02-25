@@ -3,8 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Utilties.hpp"
 #include "Strings.hpp"
-RecogniseSubCommand::RecogniseSubCommand() : SubCommand(Strings::RECOGNISE_COMMAND_NAME, Strings::RECOGNISE_COMMAND_DESCRRIPTION)
-{
+RecogniseSubCommand::RecogniseSubCommand() : SubCommand(Strings::RECOGNISE_COMMAND_NAME, Strings::RECOGNISE_COMMAND_DESCRRIPTION) {
 	add_argument("--image", "-i")
 		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
@@ -23,8 +22,7 @@ RecogniseSubCommand::RecogniseSubCommand() : SubCommand(Strings::RECOGNISE_COMMA
 		.scan<'i', int>();
 }
 
-void RecogniseSubCommand::doCommand()
-{
+void RecogniseSubCommand::doCommand() {
 	std::string fileName = get<std::string>("-i");
 	std::string modelFile = get<std::string>("-m");
 	int numberSystem = get<int>("-n");

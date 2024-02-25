@@ -26,7 +26,6 @@ bool checkThrows(Function&& func) {
 
 
 TEST_CASE("AI check") {
-
 	sf::Image image;
 	image.loadFromFile("../../../res/test/empty.png");
 	AI ai("../../../res/model.pt");

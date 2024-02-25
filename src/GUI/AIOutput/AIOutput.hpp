@@ -1,8 +1,9 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "./../../Utilities/Utilties.hpp"
-#include "./../../AI/AI.hpp"
+#include "Utilties.hpp"
+#include "AI.hpp"
+#include <memory>
 
 /**
 * \author Jakub Baldyga
@@ -15,7 +16,7 @@
 
 class AIOutput : public sf::Text
 {
-	AI* ai;
+	std::unique_ptr<AI> ai;
 	void updateThread(const sf::Image& image);
 
 	const static std::string MODEL_PATH;
@@ -30,7 +31,4 @@ public:
 	/// @brief Updates the result of the ai
 	/// @param image - image that will be used to update the result
 	void update(const sf::Image& image);
-	
-	/// @brief Default destructor
-	~AIOutput();
 };

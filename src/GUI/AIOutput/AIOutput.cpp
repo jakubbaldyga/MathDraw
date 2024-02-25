@@ -16,16 +16,13 @@ void AIOutput::updateThread(const sf::Image& image) {
 	}
 }
 
-AIOutput::AIOutput(const sf::Font& font) : sf::Text(font, "Output: -", 30) {
-	ai = new AI(MODEL_PATH);
+AIOutput::AIOutput(const sf::Font& font) : sf::Text(font, "Output: -", FONT_SIZE), 
+										   ai(new AI(MODEL_PATH))
+{
 	setPosition(sf::Vector2f(100, 100));
 }
 
 void AIOutput::update(const sf::Image& image) {
 	std::thread t(&AIOutput::updateThread, this, image);
 	t.detach();
-}
-
-AIOutput::~AIOutput() {
-	delete ai;
 }

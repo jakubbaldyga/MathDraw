@@ -7,8 +7,7 @@
 * \copyright (c) 2023 Jakub Baldyga, MIT License
 * \brief Abstract class for subcommands.
 */
-class SubCommand : public argparse::ArgumentParser
-{
+class SubCommand : public argparse::ArgumentParser {
 	public:
 	/// @brief Constructor, here will be added all the arguments
 	/// @param name - name of the subcommand, used to call it from console
