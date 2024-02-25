@@ -126,6 +126,16 @@ add_executable(MathDrawTest ${BACKEND_SOURCES} "tests/Tests.cpp")
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
 
+add_test(
+  NAME MathDrawTest
+  COMMAND $<TARGET_FILE:MathDrawTest>
+  )
+
 add_executable(MathDrawFonctionallityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
 target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)
+
+add_test(
+  NAME MathDrawFonctionallityTest
+  COMMAND $<TARGET_FILE:MathDrawFonctionallityTest>
+  )
