@@ -135,6 +135,27 @@ add_executable(MathDrawApp ${BACKEND_SOURCES} ${APP_SOURCES} "src/AppMain.cpp")
 target_link_libraries(MathDrawApp ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)
 set_property(TARGET MathDrawApp PROPERTY CXX_STANDARD 20)
 
+## testing ##
+enable_testing()
+
+#copy dlls and required resources#########
+file(GLOB TORCH_DLLS "${libtorch_SOURCE_DIR}/lib/*.dll")
+file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll")
+file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll")
+
+foreach(DLL ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS})
+    file(COPY ${DLL} DESTINATION ${CMAKE_BINARY_DIR})
+endforeach()
+
+set(RES "${CMAKE_SOURCE_DIR}/res/model.pt"
+        "${CMAKE_SOURCE_DIR}/res/font.ttf"
+)
+
+foreach(RESOURCE ${RESOURCES})
+    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR})
+endforeach()
+############################################
+
 add_executable(MathDrawTest ${BACKEND_SOURCES} "tests/Tests.cpp")
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
@@ -143,8 +164,6 @@ add_executable(MathDrawFonctionallityTest ${BACKEND_SOURCES} "tests/Functionalit
 target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)
 
-## testing ##
-enable_testing()
 add_test(
   NAME MathDrawTest
   COMMAND $<TARGET_FILE:MathDrawTest>
