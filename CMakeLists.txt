@@ -4,7 +4,7 @@ project(MathDraw)
 set(BUILD_SHARED_LIBS ON)
 
 include(FetchContent)
-
+message(STATUS, ${cmake_runtime_output_directory})
 FetchContent_Declare(
     argparse
     GIT_REPOSITORY https://github.com/p-ranav/argparse.git
@@ -45,6 +45,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 include_directories(src/Utilities)
 include_directories(src/AI)
+include_directories(res/)
 
 set(BACKEND_SOURCES
     src/AI/AI.hpp
@@ -111,19 +112,21 @@ set(APP_SOURCES
 
 #copy dlls and required resources#########
 file(GLOB TORCH_DLLS "${libtorch_SOURCE_DIR}/lib/*.dll")
-file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll")
-file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll")
+file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll" "${sfml_BINARY_DIR}/bin/Release/*.dll")
+
+file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll" "${Catch2_BINARY_DIR}/src/Release/*.dll")
 
 foreach(DLL ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS})
-    file(COPY ${DLL} DESTINATION ${CMAKE_BINARY_DIR})
+	message(STATUS, ${DLL})
+    file(COPY ${DLL} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
 endforeach()
 
 set(RES "${CMAKE_SOURCE_DIR}/res/model.pt"
         "${CMAKE_SOURCE_DIR}/res/font.ttf"
 )
-
-foreach(RESOURCE ${RESOURCES})
-    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR})
+message(STATUS, ${CMAKE_SOURCE_DIR})
+foreach(RESOURCE ${RES})
+    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
 endforeach()
 ############################################
 
@@ -138,38 +141,31 @@ set_property(TARGET MathDrawApp PROPERTY CXX_STANDARD 20)
 ## testing ##
 enable_testing()
 
-#copy dlls and required resources#########
-file(GLOB TORCH_DLLS "${libtorch_SOURCE_DIR}/lib/*.dll")
-file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll")
-file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll")
-
-foreach(DLL ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS})
-    file(COPY ${DLL} DESTINATION ${CMAKE_BINARY_DIR})
-endforeach()
-
-set(RES "${CMAKE_SOURCE_DIR}/res/model.pt"
-        "${CMAKE_SOURCE_DIR}/res/font.ttf"
-)
-
-foreach(RESOURCE ${RESOURCES})
-    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR})
-endforeach()
-############################################
-
+# Set up tests
 add_executable(MathDrawTest ${BACKEND_SOURCES} "tests/Tests.cpp")
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
 
-add_executable(MathDrawFonctionallityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
-target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
-set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)
+add_executable(MathDrawFunctionalityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
+target_link_libraries(MathDrawFunctionalityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
+set_property(TARGET MathDrawFunctionalityTest PROPERTY CXX_STANDARD 20)
 
+# Set up tests
 add_test(
-  NAME MathDrawTest
-  COMMAND $<TARGET_FILE:MathDrawTest>
+    NAME MathDrawTest
+    COMMAND $<TARGET_FILE:MathDrawTest>
 )
 
 add_test(
-  NAME MathDrawFonctionallityTest
-  COMMAND $<TARGET_FILE:MathDrawFonctionallityTest>
+    NAME MathDrawFunctionalityTest
+    COMMAND $<TARGET_FILE:MathDrawFunctionalityTest>
 )
+
+set(RES 
+	"${CMAKE_SOURCE_DIR}/res/")
+message(STATUS, ${CMAKE_SOURCE_DIR})
+foreach(RESOURCE ${RES})
+    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/res)
+    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/res)
+endforeach()
+############################################
