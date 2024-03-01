@@ -27,9 +27,9 @@ FetchContent_MakeAvailable(sfml)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system)
 else()
-	set(SFML_LIBRARIES sfml-graphics-d sfml-window-d sfml-system-d)
+    set(SFML_LIBRARIES sfml-graphics-d sfml-window-d sfml-system-d)
 endif()
-    
+
 FetchContent_Declare(
     libtorch
     URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-2.0.1%2Bcpu.zip
@@ -113,21 +113,12 @@ set(APP_SOURCES
 #copy dlls and required resources#########
 file(GLOB TORCH_DLLS "${libtorch_SOURCE_DIR}/lib/*.dll")
 file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll" "${sfml_BINARY_DIR}/bin/Release/*.dll")
-
 file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll" "${Catch2_BINARY_DIR}/src/Release/*.dll")
 
-foreach(DLL ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS})
-	message(STATUS, ${DLL})
-    file(COPY ${DLL} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
-endforeach()
-
-set(RES "${CMAKE_SOURCE_DIR}/res/model.pt"
-        "${CMAKE_SOURCE_DIR}/res/font.ttf"
+set(RESOURCES
+    "${CMAKE_SOURCE_DIR}/res/model.pt"
+    "${CMAKE_SOURCE_DIR}/res/font.ttf"
 )
-message(STATUS, ${CMAKE_SOURCE_DIR})
-foreach(RESOURCE ${RES})
-    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
-endforeach()
 ############################################
 
 add_executable(MathDrawCLI ${BACKEND_SOURCES} ${CLI_SOURCES} "src/CLIMain.cpp")
@@ -161,11 +152,18 @@ add_test(
     COMMAND $<TARGET_FILE:MathDrawFunctionalityTest>
 )
 
-set(RES 
-	"${CMAKE_SOURCE_DIR}/res/")
-message(STATUS, ${CMAKE_SOURCE_DIR})
-foreach(RESOURCE ${RES})
-    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/res)
-    file(COPY ${RESOURCE} DESTINATION ${CMAKE_BINARY_DIR}/res)
-endforeach()
-############################################
+# Define a custom target for copying resources after build
+add_custom_target(copy_resources ALL
+    COMMENT "Copying resources after build"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/res
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/res
+    DEPENDS MathDrawCLI MathDrawApp MathDrawTest MathDrawFunctionalityTest
+)
+
+# Add custom command to copy DLLs and required resources after build
+add_custom_command(TARGET copy_resources POST_BUILD
+    COMMENT "Copying DLLs and required resources after build"
+    COMMAND ${CMAKE_COMMAND} -E copy ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS} ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}
+    COMMAND ${CMAKE_COMMAND} -E copy ${RESOURCES} ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}
+    COMMAND ${CMAKE_COMMAND} -E copy ${RESOURCES} ${CMAKE_BINARY_DIR}
+)
