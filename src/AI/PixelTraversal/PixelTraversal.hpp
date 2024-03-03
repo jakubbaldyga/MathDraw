@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <vector>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 /**
@@ -22,6 +23,9 @@ public:
 	static std::vector<sf::Image> getImages(sf::Image image);
 
 private:
+
+	const static int MIN_PIXEL_IMAGE_COUNT = 10;
+	const static int PIXEL_MIN_BRIGHTNESS = 150;
 
 	static sf::Image getSubImage(sf::Image& image, int x, int y);
 

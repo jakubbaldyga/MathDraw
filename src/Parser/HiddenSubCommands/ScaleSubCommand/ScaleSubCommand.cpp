@@ -2,10 +2,9 @@
 #include <argparse/argparse.hpp>
 #include <SFML/Graphics.hpp>
 #include "../../../AI/ScaleImage/ScaleImage.hpp"
-#include "../../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
-ScaleSubCommand::ScaleSubCommand() : SubCommand(Strings::SCALE_COMMAND_NAME, Strings::SCALE_COMMAND_DESCRIPTION)
-{	
+ScaleSubCommand::ScaleSubCommand() : SubCommand(Strings::SCALE_COMMAND_NAME, Strings::SCALE_COMMAND_DESCRIPTION) {	
 	add_argument("--image", "-i")
 		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
@@ -29,8 +28,7 @@ ScaleSubCommand::ScaleSubCommand() : SubCommand(Strings::SCALE_COMMAND_NAME, Str
 		.default_value("scaledImage.png");
 }
 
-void ScaleSubCommand::doCommand()
-{
+void ScaleSubCommand::doCommand() {
 	std::string fileName = get<std::string>("-i");
 	std::string output = get<std::string>("-o");
 

@@ -1,25 +1,21 @@
 #include "WindowManager.hpp"
 
-WindowManager::WindowManager() : sf::RenderWindow(sf::VideoMode(sf::Vector2u(1200, 800)), "MathDraw")
+const sf::Vector2u WindowManager::windowSize = sf::Vector2u(1200, 800);
+const int WindowManager::FrameRate;
+
+WindowManager::WindowManager() : sf::RenderWindow(sf::VideoMode(windowSize), "MathDraw"),
+                                 contentImage(new ContentImage(windowSize)),
+                                 drawTool(new DrawTool(contentImage, sf::Color::White)),
+                                 eraseTool(new DrawTool(contentImage, sf::Color::Black)),
+                                 bucketTool(new BucketTool(contentImage))
 {
     this->setFramerateLimit(FrameRate);
-
-    font.loadFromFile("font.ttf");
-
-    aiOutput = new AIOutput(font);
-    aiOutput->setPosition(sf::Vector2f(100, 100));
-
-    contentImage = new ContentImage(windowSize);
-
-    drawTool = new DrawTool(contentImage, sf::Color::White);
-    eraseTool = new DrawTool(contentImage, sf::Color::Black);
-    bucketTool = new BucketTool(contentImage);
+    if(!font.loadFromFile("font.ttf")) std::cout << "Font not loaded" << std::endl;
+    aiOutput = std::make_unique<AIOutput>(font);
 }
 
-void WindowManager::run()
-{
-    while (this->isOpen())
-    {
+void WindowManager::run() {
+    while (this->isOpen()) {
         sf::Event event;
         if (this->pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -76,12 +72,4 @@ void WindowManager::run()
         this->draw(*aiOutput);
         this->display();
     }
-}
-
-WindowManager::~WindowManager() {
-    delete aiOutput;
-    delete drawTool;
-    delete eraseTool;
-    delete bucketTool;
-    delete contentImage;
 }

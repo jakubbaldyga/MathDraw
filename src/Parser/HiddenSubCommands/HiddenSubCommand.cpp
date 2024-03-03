@@ -2,35 +2,25 @@
 #include "TraverseSubCommand/TraverseSubCommand.hpp"
 #include "ResizeSubCommand/ResizeSubCommand.hpp"
 #include "ScaleSubCommand/ScaleSubCommand.hpp"
-#include "../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
-HiddenSubCommands::HiddenSubCommands(): SubCommand(Strings::HIDDEN_COMMAND_NAME, Strings::HIDDEN_COMMAND_DESCRRIPTION)
-{
+HiddenSubCommands::HiddenSubCommands(): SubCommand(Strings::HIDDEN_COMMAND_NAME, Strings::HIDDEN_COMMAND_DESCRRIPTION) {
 	set_suppress(true);
 
-	subCommands = std::vector<SubCommand*>();
-	subCommands.push_back(new TraverseSubCommand());
-	subCommands.push_back(new ResizeSubCommand());
-	subCommands.push_back(new ScaleSubCommand());
+	subCommands = std::vector<std::unique_ptr<SubCommand>>();
+	subCommands.push_back(std::make_unique<TraverseSubCommand>());
+	subCommands.push_back(std::make_unique<ResizeSubCommand>());
+	subCommands.push_back(std::make_unique<ScaleSubCommand>());
 
-	for (auto subCommand : subCommands) {
+	for (auto &subCommand : subCommands) {
 		add_subparser(*subCommand);
 	}
 }
 
-void HiddenSubCommands::doCommand()
-{
-	for (auto subCommand : subCommands) {
+void HiddenSubCommands::doCommand() {
+	for (auto & subCommand : subCommands) {
 		if (is_subcommand_used(*subCommand)) {
 			subCommand->doCommand();
 		}
 	}
-}
-
-HiddenSubCommands::~HiddenSubCommands()
-{
-	for (auto subCommand : subCommands) {
-		delete subCommand;
-	}
-	subCommands.clear();
 }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <memory>
+
 #include "ContentImage/ContentImage.hpp"
 #include "AIOutput/AIOutput.hpp"
 
@@ -18,15 +20,15 @@
 */
 class WindowManager : public sf::RenderWindow
 {
-    const sf::Vector2u windowSize = sf::Vector2u(1200, 800);
-    const int FrameRate = 60;
-    ContentImage* contentImage;
-    AIOutput* aiOutput;
+    static const sf::Vector2u windowSize;
+    static const int FrameRate = 60;
+    std::shared_ptr<ContentImage> contentImage;
+    std::unique_ptr<AIOutput> aiOutput;
     sf::Font font;
 
-    DrawTool* drawTool;
-    DrawTool* eraseTool;
-    BucketTool* bucketTool;
+    std::unique_ptr<DrawTool> drawTool;
+    std::unique_ptr<DrawTool> eraseTool;
+    std::unique_ptr<BucketTool> bucketTool;
     
 public:
     /// @brief Constructor for the WindowManager class.
@@ -34,7 +36,4 @@ public:
 
     /// @brief Main loop of the program.
     void run();
-
-    /// @bried Destructor for the WindowManager class.
-    ~WindowManager();
 };

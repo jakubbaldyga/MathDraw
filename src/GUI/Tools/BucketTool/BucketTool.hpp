@@ -20,7 +20,7 @@ class BucketTool : protected Tool
 	
 	/// @brief default Constructor
 	/// @param contentImage reference to the ContentImage object
-	BucketTool(ContentImage* contentImage);
+	BucketTool(std::shared_ptr<ContentImage> contentImage);
 
 	/// @brief method that fills the area with the same color to black
 	/// @param position position of the mouse

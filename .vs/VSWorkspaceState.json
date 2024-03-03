@@ -12,8 +12,17 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\AI",
+    "\\src\\AI\\ScaleImage",
+    "\\src\\Parser",
+    "\\src\\Parser\\HiddenSubCommands",
+    "\\src\\Parser\\HiddenSubCommands\\ResizeSubCommand",
+    "\\src\\Parser\\HiddenSubCommands\\ScaleSubCommand",
+    "\\src\\Parser\\RecogniseSubCommand",
+    "\\src\\Parser\\SubCommand",
+    "\\tests"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

@@ -29,7 +29,7 @@ void DrawTool::fillPoint(sf::Vector2i cursorPosition)
 	contentImage->updateTexture();
 }
 
-DrawTool::DrawTool(ContentImage* contentImage, sf::Color drawColor) : Tool(contentImage), color(drawColor) {
+DrawTool::DrawTool(std::shared_ptr<ContentImage> contentImage, sf::Color drawColor) : Tool(contentImage), color(drawColor) {
 	lastPosition = sf::Vector2i(-1, -1);
 }
 

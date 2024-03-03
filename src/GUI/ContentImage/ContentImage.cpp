@@ -1,14 +1,16 @@
 #include "ContentImage.hpp"
-#include "../../Utilities/Utilties.hpp"
+#include "Utilties.hpp"
 
-void ContentImage::clampImagePosition()
-{
+const sf::Vector2u ContentImage::imageSize = sf::Vector2u(5000, 5000);
+const sf::Vector2f ContentImage::imageStartingPosition = sf::Vector2f(-1900, -2100);
+const int ContentImage::movementSpeed = 3;
+
+void ContentImage::clampImagePosition() {
     sf::Vector2f position = getPosition();
 
-    position.x = std::max(float(-5000 * getScale().x + (int)windowSize.x), std::min(0.f, position.x));
-    position.y = std::max(float(-5000 * getScale().y + (int)windowSize.y), std::min(0.f, position.y));
+    position.x = std::max(float(imageSize.x * -getScale().x + (int)windowSize.x), std::min(0.f, position.x));
+    position.y = std::max(float(imageSize.y * -getScale().y + (int)windowSize.y), std::min(0.f, position.y));
 
-    std::cout << position.x << " " << position.y << std::endl;
     setPosition(position);
 }
 
@@ -27,8 +29,7 @@ void ContentImage::zoom(float factor) {
 
 
 
-ContentImage::ContentImage(sf::Vector2u windowSize) : sf::Sprite(texture), windowSize(windowSize)
-{
+ContentImage::ContentImage(sf::Vector2u windowSize) : sf::Sprite(texture), windowSize(windowSize) {
     image = sf::Image();
     image.create(imageSize, sf::Color::Black);
 
@@ -38,8 +39,6 @@ ContentImage::ContentImage(sf::Vector2u windowSize) : sf::Sprite(texture), windo
 
     copyImage(previousImage, image);
     copyImage(tempImage, image);
-
-    std::cout<< getPosition().x << " " << getPosition().y << std::endl;
 }
 
 void ContentImage::setPixel(sf::Vector2u position, sf::Color color) {
@@ -69,7 +68,7 @@ void ContentImage::handleMovement() {
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::D)) {
         move(sf::Vector2f(-movementSpeed, 0));
-        clampImagePosition();
+        clampImagePosition(); 
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Q)) {
@@ -84,7 +83,7 @@ void ContentImage::updateTexture() {
     texture.loadFromImage(image);
 }
 
-sf::Image ContentImage::getImage() {
+sf::Image ContentImage::getImage() const {
     return image;
 }
 

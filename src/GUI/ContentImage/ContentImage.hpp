@@ -17,11 +17,11 @@ class ContentImage : public sf::Sprite
     sf::Image image;
     sf::Texture texture;
 
-    const sf::Vector2u imageSize = sf::Vector2u(5000, 5000);
-    const sf::Vector2f imageStartingPosition = sf::Vector2f(-1900, -2100);
+    static const sf::Vector2u imageSize;
+    static const sf::Vector2f imageStartingPosition;
     const sf::Vector2u windowSize;
 
-    const int movementSpeed = 5;
+    static const int movementSpeed;
 
     bool hasUndone = false;
     sf::Image previousImage;
@@ -64,7 +64,7 @@ public:
 
     /// @brief Function that returns the current image.
     /// @return The current image.
-    sf::Image getImage();
+    sf::Image getImage() const;
 
     /// @brief Zooms in the image.
     void zoomIn();

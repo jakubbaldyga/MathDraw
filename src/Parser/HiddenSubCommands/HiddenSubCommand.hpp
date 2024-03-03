@@ -1,5 +1,6 @@
 #pragma once
 #include <argparse/argparse.hpp>
+#include <memory>
 #include "../SubCommand/SubCommand.hpp"
 
 /**
@@ -17,7 +18,7 @@
 */
 class HiddenSubCommands: public SubCommand
 {
-	std::vector<SubCommand*> subCommands;
+	std::vector<std::unique_ptr<SubCommand>> subCommands;
 
 public:
 	/// @brief Default constructor
@@ -25,9 +26,5 @@ public:
 	
 	/// @brief selects subcommand to call
 	void doCommand() override;
-	
-	/// @brief Default destructor
-	/// @details Deletes array of subcommands pointers
-	~HiddenSubCommands();
 };
 

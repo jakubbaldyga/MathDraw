@@ -1,11 +1,10 @@
 #include "ResizeSubCommand.hpp"
 #include <SFML/Graphics.hpp>
-#include "../../../AI/ResizeImage/ResizeImage.hpp"
+#include "ResizeImage/ResizeImage.hpp"
 #include <iostream>
-#include "../../../Utilities/Strings.hpp"
+#include "Strings.hpp"
 
-ResizeSubCommand::ResizeSubCommand(): SubCommand(Strings::RESIZE_COMMAND_NAME, Strings::RESIZE_COMMAND_DESCRRIPTION )
-{
+ResizeSubCommand::ResizeSubCommand(): SubCommand(Strings::RESIZE_COMMAND_NAME, Strings::RESIZE_COMMAND_DESCRRIPTION ) {
 	add_argument("--image", "-i")
 		.help(Strings::SPECIFY_IMAGE_FILE)
 		.nargs(1)
@@ -29,8 +28,7 @@ ResizeSubCommand::ResizeSubCommand(): SubCommand(Strings::RESIZE_COMMAND_NAME, S
 		.default_value("resizedImage.png");
 }
 
-void ResizeSubCommand::doCommand()
-{
+void ResizeSubCommand::doCommand() {
 	std::string fileName = get<std::string>("-i");
 	std::string output = get<std::string>("-o");
 

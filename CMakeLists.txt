@@ -1,8 +1,8 @@
 ﻿cmake_minimum_required(VERSION 3.8.0)
 project(MathDraw)
 
-set(BUILD_SHARED_LIBS OFF)
-
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 include(FetchContent)
 
 FetchContent_Declare(
@@ -27,26 +27,30 @@ FetchContent_MakeAvailable(sfml)
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     set(SFML_LIBRARIES sfml-graphics sfml-window sfml-system)
 else()
-	set(SFML_LIBRARIES sfml-graphics-d sfml-window-d sfml-system-d)
+    set(SFML_LIBRARIES sfml-graphics-d sfml-window-d sfml-system-d)
 endif()
-    
+
 FetchContent_Declare(
     libtorch
     URL https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-2.0.1%2Bcpu.zip
 )
 FetchContent_MakeAvailable(libtorch)
+
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${libtorch_SOURCE_DIR})
-
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
 find_package(Torch REQUIRED)
-
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(src/Utilities)
+include_directories(src/AI)
+include_directories(res/)
+
 set(BACKEND_SOURCES
     src/AI/AI.hpp
     src/AI/AI.cpp
-    
+
     src/AI/Net/Net.hpp
     src/AI/Net/Net.cpp
     
@@ -60,12 +64,9 @@ set(BACKEND_SOURCES
     src/AI/ScaleImage/ScaleImage.cpp
 
     src/Utilities/Utilties.hpp
-    
     src/Utilities/Strings.hpp
     src/Utilities/Strings.cpp
 )
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 set(CLI_SOURCES
     src/Parser/Parser.hpp
@@ -109,25 +110,54 @@ set(APP_SOURCES
     src/GUI/Tools/BucketTool/BucketTool.hpp
 )
 
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS})
+#copy dlls and required resources#########
+file(GLOB TORCH_DLLS "${libtorch_SOURCE_DIR}/lib/*.dll")
+file(GLOB SFML_DLLS "${sfml_BINARY_DIR}/bin/*.dll" "${sfml_BINARY_DIR}/bin/Release/*.dll")
+file(GLOB CATCH2_DLLS "${Catch2_BINARY_DIR}/src/*.dll" "${Catch2_BINARY_DIR}/src/Release/*.dll")
+
+set(RESOURCES
+    "${CMAKE_SOURCE_DIR}/res/model.pt"
+    "${CMAKE_SOURCE_DIR}/res/font.ttf"
+)
+############################################
 
 add_executable(MathDrawCLI ${BACKEND_SOURCES} ${CLI_SOURCES} "src/CLIMain.cpp")
 target_link_libraries(MathDrawCLI ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)
 set_property(TARGET MathDrawCLI PROPERTY CXX_STANDARD 20)
-install(TARGETS MathDrawCLI)
-
 
 add_executable(MathDrawApp ${BACKEND_SOURCES} ${APP_SOURCES} "src/AppMain.cpp")
 target_link_libraries(MathDrawApp ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse)
 set_property(TARGET MathDrawApp PROPERTY CXX_STANDARD 20)
-install(TARGETS MathDrawApp)
 
+## testing ##
 enable_testing()
 
+# Set up tests
 add_executable(MathDrawTest ${BACKEND_SOURCES} "tests/Tests.cpp")
 target_link_libraries(MathDrawTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
 set_property(TARGET MathDrawTest PROPERTY CXX_STANDARD 20)
 
-add_executable(MathDrawFonctionallityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
-target_link_libraries(MathDrawFonctionallityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
-set_property(TARGET MathDrawFonctionallityTest PROPERTY CXX_STANDARD 20)
+add_executable(MathDrawFunctionalityTest ${BACKEND_SOURCES} "tests/FunctionalityTest.cpp")
+target_link_libraries(MathDrawFunctionalityTest ${TORCH_LIBRARIES} ${SFML_LIBRARIES} argparse Catch2::Catch2WithMain)
+set_property(TARGET MathDrawFunctionalityTest PROPERTY CXX_STANDARD 20)
+
+# Set up tests
+add_test(
+    NAME MathDrawTest
+    COMMAND $<TARGET_FILE:MathDrawTest>
+)
+
+add_test(
+    NAME MathDrawFunctionalityTest
+    COMMAND $<TARGET_FILE:MathDrawFunctionalityTest>
+)
+
+# Add custom command to copy DLLs and required resources after build
+add_custom_command(TARGET MathDrawCLI MathDrawApp MathDrawTest MathDrawFunctionalityTest POST_BUILD
+    COMMENT "Copying DLLs and required resources after build"
+	COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/res
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/res
+    COMMAND ${CMAKE_COMMAND} -E copy ${TORCH_DLLS} ${SFML_DLLS} ${CATCH2_DLLS} ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}
+    COMMAND ${CMAKE_COMMAND} -E copy ${RESOURCES} ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}
+    COMMAND ${CMAKE_COMMAND} -E copy ${RESOURCES} ${CMAKE_BINARY_DIR}
+)

@@ -2,19 +2,17 @@
 #include "RecogniseSubCommand/RecogniseSubCommand.hpp"
 #include "HiddenSubCommands/HiddenSubCommand.hpp"
 
-Parser::Parser(std::string programName, std::string programVersion): argparse::ArgumentParser(programName, programVersion)
-{
-	subCommands = std::vector<SubCommand*>();
-	subCommands.push_back(new RecogniseSubCommand());
-	subCommands.push_back(new HiddenSubCommands);
+Parser::Parser(std::string programName, std::string programVersion): argparse::ArgumentParser(programName, programVersion) {
+	subCommands = std::vector<std::unique_ptr<SubCommand>>();
+	subCommands.push_back(std::make_unique<RecogniseSubCommand>());
+	subCommands.push_back(std::make_unique<HiddenSubCommands>());
 	
-	for(auto subCommand : subCommands) {
+	for(auto &subCommand : subCommands) {
 		add_subparser(*subCommand);
 	}
 }
 
-void Parser::parseArgs(int argc, char* argv[])
-{
+void Parser::parseArgs(int argc, char* argv[]) {
 	try {
 		ArgumentParser::parse_args(argc, argv);
 	}
@@ -24,18 +22,9 @@ void Parser::parseArgs(int argc, char* argv[])
 		return;
 	}
 
-	for (auto subCommand : subCommands) {
+	for (auto &subCommand : subCommands) {
 		if (is_subcommand_used(*subCommand)) {
 			subCommand->doCommand();
 		}
 	}
-}
-
-Parser::~Parser()
-{
-	for (auto subCommand : subCommands) {
-		delete subCommand;
-	}
-	subCommands.clear();
-	
 }

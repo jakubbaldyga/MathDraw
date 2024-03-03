@@ -28,7 +28,7 @@ public:
 	/// @brief Constructor
 	/// @param contentImage Reference to the image to be drawn on
 	/// @param drawColor - Color of the drawing
-	DrawTool(ContentImage* contentImage, sf::Color drawColor);
+	DrawTool(std::shared_ptr<ContentImage> contentImage, sf::Color drawColor);
 
 	/// @brief inherited from Tool. Draws a line between the last and the current position of the mouse
 	/// @param position position of the mouse
