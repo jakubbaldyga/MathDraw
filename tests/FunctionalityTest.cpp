@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "../src/Utilities/Strings.hpp"
-#include "../src/Utilities/Utilties.hpp"
+#include "../src/Utilities//Utilties.hpp"
 #include <SFML/System/Vector2.hpp>
 #include "../src/AI/PixelTraversal/PixelTraversal.hpp"
 #include "../src/AI/ScaleImage/ScaleImage.hpp"
@@ -28,7 +28,7 @@ bool checkThrows(Function&& func) {
 TEST_CASE("AI check") {
 	sf::Image image;
 	image.loadFromFile("res/test/empty.png");
-	AI ai("model.pt");
+	AI ai("res/model.pt");
 
 	auto func = std::bind(&AI::evaluate, ai, image, 10);
 	REQUIRE(checkThrows(func) == true);
@@ -59,7 +59,7 @@ TEST_CASE("Algorithms check") {
 
 	REQUIRE(PixelTraversal::getImages(image).size() == 0);
 
-	if(!image.loadFromFile("res/test/12.png")) REQUIRE(false);
+	image.loadFromFile("res/test/12.png");
 
 	auto result = PixelTraversal::getImages(image);
 	sf::Image im1, im2;
